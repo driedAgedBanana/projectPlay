@@ -12,7 +12,7 @@ public class StaminaScript : MonoBehaviour
     // for recharging
     private Coroutine rechargeCoroutine;
     public float rechargeDelay = 2f;
-    public float rechargeRate = 10f; // Updated variable name for consistency
+    public float rechargeRate = 200f; // Updated variable name for consistency
 
     public static StaminaScript instance;
 
@@ -64,6 +64,7 @@ public class StaminaScript : MonoBehaviour
         {
             currentStamina += (int)(rechargeRate * Time.deltaTime);
             staminaBar.value = currentStamina;
+            yield return null;
         }
 
         // Ensure the currentStamina doesn't exceed maxStamina
