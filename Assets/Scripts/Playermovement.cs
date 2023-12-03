@@ -7,11 +7,12 @@ public class Playermovement : MonoBehaviour
     public float speed;
     public float runSpeedMultiplier = 2f; // Adjust this value to set the running speed multiplier
     private bool isRunning = false;
+    private StaminaScript staminaScript;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        staminaScript = StaminaScript.instance;
     }
 
     // Update is called once per frame
@@ -23,7 +24,12 @@ public class Playermovement : MonoBehaviour
         // Check if the shift key is held down
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            isRunning = true;
+           //Checking if the stamina is enough to run
+           if(staminaScript != null && staminaScript.HasEnoughStamina())
+            {
+                isRunning = true;
+                staminaScript.UseStamina(1);
+            }
         }
         else
         {
