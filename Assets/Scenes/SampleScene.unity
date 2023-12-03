@@ -1162,7 +1162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   staminaBar: {fileID: 1273738481}
   rechargeDelay: 1
-  rechargeRate: 240
+  rechargeRate: 30
 --- !u!1 &1217391659
 GameObject:
   m_ObjectHideFlags: 0

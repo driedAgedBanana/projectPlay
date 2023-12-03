@@ -12,7 +12,7 @@ public class StaminaScript : MonoBehaviour
     // for recharging
     private Coroutine rechargeCoroutine;
     public float rechargeDelay = 2f;
-    public float rechargeRate = 200f; // Updated variable name for consistency
+    public float rechargeRate = 30f; // Updated variable name for consistency
 
     public static StaminaScript instance;
 
@@ -62,16 +62,11 @@ public class StaminaScript : MonoBehaviour
         // Recharge the stamina up to its maximum value
         while (currentStamina < maxStamina)
         {
-            currentStamina += (int)(rechargeRate * Time.deltaTime);
+            float rechargeAmount = rechargeRate * Time.deltaTime;
+            currentStamina = Mathf.Min(currentStamina + Mathf.CeilToInt(rechargeAmount), maxStamina);
             staminaBar.value = currentStamina;
             yield return null;
         }
-
-        // Ensure the currentStamina doesn't exceed maxStamina
-        currentStamina = Mathf.Min(currentStamina, maxStamina);
-
-        // Reset the coroutine reference when the recharge is complete
-        rechargeCoroutine = null;
     }
 
     public bool HasEnoughStamina()
