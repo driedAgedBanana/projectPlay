@@ -1034,7 +1034,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  runSpeedMultiplier: 2
+  runSpeedMultiplier: 2.5
 --- !u!212 &1107511378
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1161,8 +1161,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   staminaBar: {fileID: 1273738481}
-  rechargeDelay: 0.5
-  rechargeRate: 150
+  rechargeDelay: 1
+  rechargeRate: 240
 --- !u!1 &1217391659
 GameObject:
   m_ObjectHideFlags: 0
