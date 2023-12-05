@@ -1267,6 +1267,7 @@ MonoBehaviour:
   staminaBar: {fileID: 1273738481}
   rechargeDelay: 1
   rechargeRate: 30
+  staminaConsumptionRate: 4
 --- !u!1 &1217391659
 GameObject:
   m_ObjectHideFlags: 0

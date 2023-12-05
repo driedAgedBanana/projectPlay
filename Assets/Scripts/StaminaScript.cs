@@ -12,7 +12,8 @@ public class StaminaScript : MonoBehaviour
     // for recharging
     private Coroutine rechargeCoroutine;
     public float rechargeDelay = 2f;
-    public float rechargeRate = 30f; // Updated variable name for consistency
+    public float rechargeRate = 30f;
+    public float staminaConsumptionRate = 4f; // Adjust this value to slow down stamina consumption during running
 
     public static StaminaScript instance;
 

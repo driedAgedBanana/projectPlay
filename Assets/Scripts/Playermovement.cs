@@ -30,6 +30,11 @@ public class Playermovement : MonoBehaviour
                 isRunning = true;
                 staminaScript.UseStamina(1);
             }
+            else
+            {
+                // If there is not enough stamina, stop running
+                isRunning = false;
+            }
         }
         else
         {
