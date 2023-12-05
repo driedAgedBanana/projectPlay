@@ -24,8 +24,8 @@ public class Playermovement : MonoBehaviour
         // Check if the shift key is held down
         if (Input.GetKey(KeyCode.LeftShift))
         {
-           //Checking if the stamina is enough to run
-           if(staminaScript != null && staminaScript.HasEnoughStamina())
+            // Checking if the stamina is enough to run
+            if (staminaScript != null && staminaScript.HasEnoughStamina())
             {
                 isRunning = true;
                 staminaScript.UseStamina(1);
@@ -40,7 +40,15 @@ public class Playermovement : MonoBehaviour
         float currentSpeed = isRunning ? speed * runSpeedMultiplier : speed;
 
         // Move the player
-        transform.Translate(Vector2.right * xInput * currentSpeed * Time.deltaTime);
-        transform.Translate(Vector2.up * yInput * currentSpeed * Time.deltaTime);
+        if (Mathf.Abs(xInput) > Mathf.Abs(yInput))
+        {
+            // Move horizontally
+            transform.Translate(Vector2.right * xInput * currentSpeed * Time.deltaTime);
+        }
+        else
+        {
+            // Move vertically
+            transform.Translate(Vector2.up * yInput * currentSpeed * Time.deltaTime);
+        }
     }
 }
