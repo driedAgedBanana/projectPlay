@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Playermovement : MonoBehaviour
@@ -8,6 +7,18 @@ public class Playermovement : MonoBehaviour
     public float runSpeedMultiplier = 2f; // Adjust this value to set the running speed multiplier
     private bool isRunning = false;
     private StaminaScript staminaScript;
+
+    // For animation
+    private Animator animator;
+
+    // Time variables for sitting idle
+    private float idleTimer = 0f;
+    public float idleTimeThreshold = 10f; // Adjust this value to set the idle time threshold
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +40,7 @@ public class Playermovement : MonoBehaviour
             {
                 isRunning = true;
                 staminaScript.UseStamina(1);
+                idleTimer = 0f; // Reset the idle timer when the player is active
             }
             else
             {
@@ -39,6 +51,8 @@ public class Playermovement : MonoBehaviour
         else
         {
             isRunning = false;
+            // Increment the idle timer when the player is not active
+            idleTimer += Time.deltaTime;
         }
 
         // Calculate the speed based on whether the player is running or not
@@ -49,11 +63,27 @@ public class Playermovement : MonoBehaviour
         {
             // Move horizontally
             transform.Translate(Vector2.right * xInput * currentSpeed * Time.deltaTime);
+
+            // Flip the sprite when moving to the right
+            if (xInput > 0)
+            {
+                transform.localScale = new Vector3(-0.8f, 0.8f, 0.8f);
+            }
+            // Keep the sprite facing left when moving to the left
+            else if (xInput < 0)
+            {
+                transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+            }
         }
         else
         {
             // Move vertically
             transform.Translate(Vector2.up * yInput * currentSpeed * Time.deltaTime);
         }
+
+        // Set animation
+        animator.SetBool("nekoWalk", xInput != 0);
+        animator.SetBool("nekoWalkUp", yInput != 0);
+        animator.SetBool("nekoWalkDown", yInput < 0);
     }
 }
