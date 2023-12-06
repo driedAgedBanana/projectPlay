@@ -9,16 +9,6 @@ public class Playermovement : MonoBehaviour
     private bool isRunning = false;
     private StaminaScript staminaScript;
 
-    // For animation
-    private Animator animator;
-    private float idleTimer = 0f;
-    private float idleTimeThreshold = 10f;
-
-    private void Awake()
-    {
-        animator = GetComponent<Animator>();
-    }
-
     // Start is called before the first frame update
     void Start()
     {
@@ -59,37 +49,11 @@ public class Playermovement : MonoBehaviour
         {
             // Move horizontally
             transform.Translate(Vector2.right * xInput * currentSpeed * Time.deltaTime);
-
-            // Flip the sprite when moving to the right
-            if (xInput > 0)
-            {
-                transform.localScale = new Vector3(-1f, 1f, 1f);
-            }
-            // Keep the sprite facing left when moving to the left
-            else if (xInput < 0)
-            {
-                transform.localScale = new Vector3(1f, 1f, 1f);
-            }
         }
         else
         {
             // Move vertically
             transform.Translate(Vector2.up * yInput * currentSpeed * Time.deltaTime);
-        }
-
-        // Set animation
-        animator.SetBool("Running", xInput != 0);
-        animator.SetBool("RunningUp", yInput != 0);
-        animator.SetBool("RunningDown", yInput < 0);
-
-        //player idle testing time
-        if (idleTimer >= idleTimeThreshold)
-        {
-            animator.SetBool("PlayerSitIdle", true);
-        }
-        else
-        {
-            animator.SetBool("PlayerSitIdle", false);
         }
     }
 }
