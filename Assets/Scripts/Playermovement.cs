@@ -91,6 +91,9 @@ public class Playermovement : MonoBehaviour
         animator.SetBool("nekoWalkDown", yInput < 0);
         animator.SetBool("NekoDashup", yInput != 0 && isRunning);
         animator.SetBool("NekoDashDown", yInput < 0 && isRunning);
-        animator.SetBool("NekoDash", xInput != 0 && isRunning);
+        if (xInput != 0 && isRunning)
+        {
+            animator.Play("NekoSideDash");
+        }
     }
 }
