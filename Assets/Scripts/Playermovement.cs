@@ -6,6 +6,7 @@ public class Playermovement : MonoBehaviour
     public float speed;
     public float runSpeedMultiplier = 2f; // Adjust this value to set the running speed multiplier
     private bool isRunning = false;
+    [SerializeField] private TrailRenderer tr;
     private StaminaScript staminaScript;
 
     // For animation
@@ -24,6 +25,7 @@ public class Playermovement : MonoBehaviour
     void Start()
     {
         staminaScript = StaminaScript.instance;
+        tr.emitting = false;
     }
 
     // Update is called once per frame
@@ -41,11 +43,13 @@ public class Playermovement : MonoBehaviour
                 isRunning = true;
                 staminaScript.UseStamina(1);
                 idleTimer = 0f; // Reset the idle timer when the player is active
+                tr.emitting = true;
             }
             else
             {
                 // If there is not enough stamina, stop running
                 isRunning = false;
+                tr.emitting = false;
             }
         }
         else
@@ -53,6 +57,7 @@ public class Playermovement : MonoBehaviour
             isRunning = false;
             // Increment the idle timer when the player is not active
             idleTimer += Time.deltaTime;
+            tr.emitting = false;
         }
 
         // Calculate the speed based on whether the player is running or not
