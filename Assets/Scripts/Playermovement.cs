@@ -87,13 +87,10 @@ public class Playermovement : MonoBehaviour
 
         // Set animation
         animator.SetBool("nekoWalk", xInput != 0);
-        animator.SetBool("nekoWalkUp", yInput != 0);
+        animator.SetBool("nekoWalkUp", yInput > 0);
         animator.SetBool("nekoWalkDown", yInput < 0);
         animator.SetBool("NekoDashup", yInput != 0 && isRunning);
-        animator.SetBool("NekoDashDown", yInput < 0 && isRunning);
-        if (xInput != 0 && isRunning)
-        {
-            animator.Play("NekoSideDash");
-        }
+        animator.SetBool("NekoDashDown", yInput != 0 && isRunning);
+        animator.SetBool("NekoDash", xInput != 0 && isRunning);
     }
 }
