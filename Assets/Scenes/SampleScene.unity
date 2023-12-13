@@ -1134,7 +1134,7 @@ MonoBehaviour:
   speed: 5
   runSpeedMultiplier: 5
   tr: {fileID: 1107511384}
-  idleTimeThreshold: 20
+  idleTimeThreshold: 5
 --- !u!212 &1107511378
 SpriteRenderer:
   m_ObjectHideFlags: 0

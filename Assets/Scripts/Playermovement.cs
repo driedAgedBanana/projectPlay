@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Playermovement : MonoBehaviour
@@ -53,10 +54,11 @@ public class Playermovement : MonoBehaviour
         }
         else
         {
-            isRunning = false;
             // Increment the idle timer when the player is not active
             idleTimer += Time.deltaTime;
             tr.emitting = false;
+
+            isRunning = false;
         }
 
         // Calculate the speed based on whether the player is running or not
@@ -65,6 +67,7 @@ public class Playermovement : MonoBehaviour
         // Move the player
         if (Mathf.Abs(xInput) > Mathf.Abs(yInput))
         {
+
             // Move horizontally
             transform.Translate(Vector2.right * xInput * currentSpeed * Time.deltaTime);
 
@@ -89,8 +92,32 @@ public class Playermovement : MonoBehaviour
         animator.SetBool("nekoWalk", xInput != 0);
         animator.SetBool("nekoWalkUp", yInput > 0);
         animator.SetBool("nekoWalkDown", yInput < 0);
+
+        // Dashing animation
         animator.SetBool("NekoDashup", yInput != 0 && isRunning);
         animator.SetBool("NekoDashDown", yInput != 0 && isRunning);
         animator.SetBool("NekoDash", xInput != 0 && isRunning);
+
+        if (!isRunning && idleTimer >= idleTimeThreshold)
+        {
+            StartCoroutine(PlaySittingAnimations());
+        }
+
+        IEnumerator PlaySittingAnimations()
+        {
+            // Play the "NekoBeginSitting" animation
+            animator.SetBool("NekoBeginSitting", true);
+            yield return new WaitForSeconds(0.5f);
+
+            // Play the "NekoIsSitting" animation
+            animator.SetBool("NekoBeginSitting", false);
+            animator.SetBool("NekoIsSitting", true);
+        }
+
+        //// Sitting animation
+        //animator.SetBool("NekoBeginSitting", !isRunning && idleTimer >= idleTimeThreshold);
+        //animator.SetBool("NekoIsSitting", !isRunning && idleTimer >= idleTimeThreshold);
+
+
     }
 }
