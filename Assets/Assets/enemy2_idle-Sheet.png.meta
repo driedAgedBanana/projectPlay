@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 77d0e196113210441a9c4f15852cb64e
+guid: f272f9267ec06a94789869117d5f612f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -81,33 +81,20 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -132,30 +119,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: NEKO_left-right_v2-Sheet_0
+      name: enemy2_idle-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 320
-        height: 320
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,41 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8130a2d9d6c9c8642b22063260586993
-      internalID: -152071295
+      spriteID: d9c46ed350880e14dbdceba5d5806703
+      internalID: -1975936032
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NEKO_left-right_v2-Sheet_1
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 0
-        width: 320
-        height: 320
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 84803e9e81a23d54ba325f00bf5ed1db
-      internalID: -1922332
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NEKO_left-right_v2-Sheet_2
+      name: enemy2_idle-Sheet_1
       rect:
         serializedVersion: 2
         x: 640
         y: 0
-        width: 320
-        height: 320
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,41 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b6c52436c66d0042950df13f134e87d
-      internalID: 448281818
+      spriteID: f1bc2b323dc1bde4f83a073c05557fa3
+      internalID: -1116789549
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NEKO_left-right_v2-Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 960
-        y: 0
-        width: 320
-        height: 320
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fe64b4bc9399795459422bc98995cb89
-      internalID: 266485891
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NEKO_left-right_v2-Sheet_4
+      name: enemy2_idle-Sheet_2
       rect:
         serializedVersion: 2
         x: 1280
         y: 0
-        width: 320
-        height: 320
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -247,20 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e95acc8fa66b7548b85a4982e5c9527
-      internalID: 1219501689
+      spriteID: 9ba516891db040e469f2d44e0be0cb94
+      internalID: 351216442
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NEKO_left-right_v2-Sheet_5
+      name: enemy2_idle-Sheet_3
       rect:
         serializedVersion: 2
-        x: 1600
+        x: 1920
         y: 0
-        width: 320
-        height: 320
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -268,8 +200,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 79b91e55e9cbcf640a2ffdd987915b51
-      internalID: 1710768165
+      spriteID: e50a52d6b3dc5d14b8b6418f4c4f4693
+      internalID: 2126154862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy2_idle-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4b49439ab8eb854abaccbec04246787
+      internalID: -64258438
       vertices: []
       indices: 
       edges: []
@@ -285,12 +238,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      NEKO_left-right_v2-Sheet_0: -152071295
-      NEKO_left-right_v2-Sheet_1: -1922332
-      NEKO_left-right_v2-Sheet_2: 448281818
-      NEKO_left-right_v2-Sheet_3: 266485891
-      NEKO_left-right_v2-Sheet_4: 1219501689
-      NEKO_left-right_v2-Sheet_5: 1710768165
+      enemy2_idle-Sheet_0: -1975936032
+      enemy2_idle-Sheet_1: -1116789549
+      enemy2_idle-Sheet_2: 351216442
+      enemy2_idle-Sheet_3: 2126154862
+      enemy2_idle-Sheet_4: -64258438
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
