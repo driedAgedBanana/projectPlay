@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -7,59 +8,98 @@ public class EnemiesMovement : MonoBehaviour
 {
     public GameObject player;
     public float speed;
-
     public float distanceBetween;
-
-    private float distance;
 
     private Animator anim;
     private bool isStatue = true;
 
+    SpriteRenderer sr;
+
     private void Start()
     {
         anim = GetComponent<Animator>();
+        sr = GetComponent<SpriteRenderer>();
     }
-
-    // Update is called once per frame
-    void Update()
+        // Update is called once per frame
+        void Update()
     {
-        distance = Vector2.Distance(transform.position, player.transform.position);
-        Vector2 direction = player.transform.position - transform.position;
-        direction.Normalize();
-
-        // Limit movement to up, down, right, and left
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        int roundedAngle = Mathf.RoundToInt(angle / 90.0f) * 90; // Round to nearest 90 degrees
-        Vector2 limitedDirection = Quaternion.Euler(0, 0, roundedAngle) * Vector2.right;
+        float distance = Vector2.Distance(transform.position, player.transform.position);
 
         if (distance < distanceBetween)
         {
-            // Move the enemy
-            transform.position = Vector2.MoveTowards(transform.position, (Vector2)transform.position + limitedDirection, speed * Time.deltaTime);
-            // Rotate the enemy based on the movement direction
-            transform.rotation = Quaternion.Euler(Vector3.forward * roundedAngle);
+            // Move the enemy towards the player
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
 
-            // Trigger animations based on movement direction
-            anim.SetBool("IsMovingUp", roundedAngle == 90);
-            anim.SetBool("IsMovingDown", roundedAngle == -90);
-            anim.SetBool("IsMoving", true);
+            //Vector2 direction = (player.transform.position - transform.position).normalized;
+            Vector2 difference = player.transform.position - transform.position;
+
+            if (Mathf.Abs(difference.x) > Mathf.Abs(difference.y))
+            {
+                if (difference.x > 0)
+                {
+                    anim.SetBool("IsMoving", true);
+                    anim.SetBool("IsMovingUp", false);
+                    anim.SetBool("IsMovingDown", false);
+                    anim.SetBool("StatueTrigger", false);
+                    
+                    sr.flipX = true;
+                }
+                else if (difference.x < 0)
+                {
+                    anim.SetBool("IsMoving", true);
+                    anim.SetBool("IsMovingUp", false);
+                    anim.SetBool("IsMovingDown", false);
+                    anim.SetBool("StatueTrigger", false);
+
+                    sr.flipX = false;
+                }
+            }
+
+            if (Mathf.Abs(difference.y) > Mathf.Abs(difference.x))
+            {
+                if (difference.y > 0)
+                {
+                    anim.SetBool("IsMovingUp", true);
+                    anim.SetBool("IsMoving", false);
+                    anim.SetBool("IsMovingDown", false);
+                    anim.SetBool("StatueTrigger", false);
+                }
+                else if (difference.y < 0)
+                {
+                    anim.SetBool("IsMovingDown", true);
+                    anim.SetBool("IsMoving", false);
+                    anim.SetBool("IsMovingUp", false);
+                    anim.SetBool("StatueTrigger", false);
+                }
+            }
 
             // Check for transforming condition
-            if (isStatue)
+            if (isStatue && Mathf.Abs(difference.x) > 0.01f)
             {
-                // Trigger transforming animation
-                anim.SetTrigger("ScorpionTransform");
-                isStatue = false;
+                // Trigger transforming animation only for horizontal movement
+                StartCoroutine(cantMove());
             }
         }
         else
         {
-            // Stop moving and reset animation parameters
+            // Reset the statue state when the player is not in the trigger zone
+            isStatue = true;
+
+            // Set animation parameters for idle state
             anim.SetBool("IsMovingUp", false);
             anim.SetBool("IsMovingDown", false);
             anim.SetBool("IsMoving", false);
+            anim.SetBool("StatueTrigger", false);
         }
+    }
 
+    IEnumerator cantMove()
+    {
+        anim.SetTrigger("StatueTrigger");
+        speed = 0;
+        isStatue = false;
+        yield return new WaitForSeconds(.5f);
+        speed = 7;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

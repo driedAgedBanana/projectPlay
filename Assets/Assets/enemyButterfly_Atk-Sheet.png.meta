@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 937d1b63aed78434eb963fab7227c666
+guid: c2559bf00f9e29040adfa787cdc64866
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 150
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -81,33 +81,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -145,11 +119,24 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemy2_idle_v2-Sheet_0
+      name: enemyButterfly_Atk-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -163,14 +150,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee3cb9a655a0dc5448ca1fb5cc1be0c8
-      internalID: 241107787
+      spriteID: 9c3359f9b1c1bb446ac461c68fdb0b96
+      internalID: -1195126456
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_idle_v2-Sheet_1
+      name: enemyButterfly_Atk-Sheet_1
       rect:
         serializedVersion: 2
         x: 640
@@ -184,14 +171,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4159a59df78d6694e9b9e250e491ff48
-      internalID: -1157548701
+      spriteID: d2d6fe842a18e564aa24598cec162be9
+      internalID: -1331483441
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_idle_v2-Sheet_2
+      name: enemyButterfly_Atk-Sheet_2
       rect:
         serializedVersion: 2
         x: 1280
@@ -205,14 +192,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01822159e48460e4084b183afee9195f
-      internalID: 820763169
+      spriteID: 31eb30c792969734d8eb87e08dd57a5a
+      internalID: -1162329961
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_idle_v2-Sheet_3
+      name: enemyButterfly_Atk-Sheet_3
       rect:
         serializedVersion: 2
         x: 1920
@@ -226,14 +213,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60ac39a6151786d40a7304ae9af3d5b8
-      internalID: -908682946
+      spriteID: 392bbbac1a883fd4999bd1e229e9d32b
+      internalID: 2003458313
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_idle_v2-Sheet_4
+      name: enemyButterfly_Atk-Sheet_4
       rect:
         serializedVersion: 2
         x: 2560
@@ -247,50 +234,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 699ed1ee5da3db84eb60c52939697995
-      internalID: 453786670
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemy2_idle_v2-Sheet_5
-      rect:
-        serializedVersion: 2
-        x: 3200
-        y: 0
-        width: 640
-        height: 640
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 73c4efc5116e37a4d81143d93a02855e
-      internalID: -205370448
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemy2_idle_v2-Sheet_6
-      rect:
-        serializedVersion: 2
-        x: 3840
-        y: 0
-        width: 640
-        height: 640
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0099347c86d28ee4ca27d3ebb49bd6b6
-      internalID: -1825801761
+      spriteID: 21962ddfac3d30c4a8b9917651cf94ba
+      internalID: 2093593655
       vertices: []
       indices: 
       edges: []
@@ -306,13 +251,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      enemy2_idle_v2-Sheet_0: 241107787
-      enemy2_idle_v2-Sheet_1: -1157548701
-      enemy2_idle_v2-Sheet_2: 820763169
-      enemy2_idle_v2-Sheet_3: -908682946
-      enemy2_idle_v2-Sheet_4: 453786670
-      enemy2_idle_v2-Sheet_5: -205370448
-      enemy2_idle_v2-Sheet_6: -1825801761
+      enemyButterfly_Atk-Sheet_0: -1195126456
+      enemyButterfly_Atk-Sheet_1: -1331483441
+      enemyButterfly_Atk-Sheet_2: -1162329961
+      enemyButterfly_Atk-Sheet_3: 2003458313
+      enemyButterfly_Atk-Sheet_4: 2093593655
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

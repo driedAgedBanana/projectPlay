@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 937d1b63aed78434eb963fab7227c666
+guid: 999b8a4dadc31314aa7547ac0b61b39f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 150
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -81,33 +81,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -145,11 +119,24 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemy2_idle_v2-Sheet_0
+      name: enemy1_leftright_attack_v2-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -163,14 +150,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee3cb9a655a0dc5448ca1fb5cc1be0c8
-      internalID: 241107787
+      spriteID: 83a22ed5c0c461044b6f4fa2fdc722d1
+      internalID: -23297169
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_idle_v2-Sheet_1
+      name: enemy1_leftright_attack_v2-Sheet_1
       rect:
         serializedVersion: 2
         x: 640
@@ -184,14 +171,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4159a59df78d6694e9b9e250e491ff48
-      internalID: -1157548701
+      spriteID: dbe479ca4078204469ea19a80aba0ca3
+      internalID: -156876413
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_idle_v2-Sheet_2
+      name: enemy1_leftright_attack_v2-Sheet_2
       rect:
         serializedVersion: 2
         x: 1280
@@ -205,14 +192,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01822159e48460e4084b183afee9195f
-      internalID: 820763169
+      spriteID: 6544722c5ed678544b86b9e67e68bf42
+      internalID: 357030824
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_idle_v2-Sheet_3
+      name: enemy1_leftright_attack_v2-Sheet_3
       rect:
         serializedVersion: 2
         x: 1920
@@ -226,14 +213,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60ac39a6151786d40a7304ae9af3d5b8
-      internalID: -908682946
+      spriteID: dbf41913fbf9f984280b284797212d6f
+      internalID: -687002747
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_idle_v2-Sheet_4
+      name: enemy1_leftright_attack_v2-Sheet_4
       rect:
         serializedVersion: 2
         x: 2560
@@ -247,14 +234,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 699ed1ee5da3db84eb60c52939697995
-      internalID: 453786670
+      spriteID: c4b7a46e4b6d0684d8bee0a026ca04f8
+      internalID: 1133497827
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_idle_v2-Sheet_5
+      name: enemy1_leftright_attack_v2-Sheet_5
       rect:
         serializedVersion: 2
         x: 3200
@@ -268,14 +255,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 73c4efc5116e37a4d81143d93a02855e
-      internalID: -205370448
+      spriteID: f36655f61bd942c4c8d7f62e920e18e8
+      internalID: 455137463
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_idle_v2-Sheet_6
+      name: enemy1_leftright_attack_v2-Sheet_6
       rect:
         serializedVersion: 2
         x: 3840
@@ -289,8 +276,155 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0099347c86d28ee4ca27d3ebb49bd6b6
-      internalID: -1825801761
+      spriteID: 5c5e49838e3f2bb4e97108b33bd1847e
+      internalID: 1181544956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1_leftright_attack_v2-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 4480
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e30299f5115001345ad5698eb992a476
+      internalID: 1024256397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1_leftright_attack_v2-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5975f4ebc1477747bb9deeebdf8b583
+      internalID: 1297443212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1_leftright_attack_v2-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecbbdf0c672b8394daa52e377aa80c9a
+      internalID: 2098204910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1_leftright_attack_v2-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 6400
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b287e4baec8a304c8fae0f89548eddb
+      internalID: 1861995438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1_leftright_attack_v2-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 7040
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a4523776d877e54d954d829970b5762
+      internalID: -1976150333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1_leftright_attack_v2-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62c7e3e88e4573a49b6714e58d7af220
+      internalID: 408266707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1_leftright_attack_v2-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 8320
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: affac964bb661e54ead7fd027bf1cdea
+      internalID: 1653121704
       vertices: []
       indices: 
       edges: []
@@ -306,13 +440,20 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      enemy2_idle_v2-Sheet_0: 241107787
-      enemy2_idle_v2-Sheet_1: -1157548701
-      enemy2_idle_v2-Sheet_2: 820763169
-      enemy2_idle_v2-Sheet_3: -908682946
-      enemy2_idle_v2-Sheet_4: 453786670
-      enemy2_idle_v2-Sheet_5: -205370448
-      enemy2_idle_v2-Sheet_6: -1825801761
+      enemy1_leftright_attack_v2-Sheet_0: -23297169
+      enemy1_leftright_attack_v2-Sheet_1: -156876413
+      enemy1_leftright_attack_v2-Sheet_10: 1861995438
+      enemy1_leftright_attack_v2-Sheet_11: -1976150333
+      enemy1_leftright_attack_v2-Sheet_12: 408266707
+      enemy1_leftright_attack_v2-Sheet_13: 1653121704
+      enemy1_leftright_attack_v2-Sheet_2: 357030824
+      enemy1_leftright_attack_v2-Sheet_3: -687002747
+      enemy1_leftright_attack_v2-Sheet_4: 1133497827
+      enemy1_leftright_attack_v2-Sheet_5: 455137463
+      enemy1_leftright_attack_v2-Sheet_6: 1181544956
+      enemy1_leftright_attack_v2-Sheet_7: 1024256397
+      enemy1_leftright_attack_v2-Sheet_8: 1297443212
+      enemy1_leftright_attack_v2-Sheet_9: 2098204910
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 937d1b63aed78434eb963fab7227c666
+guid: 3f484a2a50a4a9e45befe3c6b65f0b38
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -81,33 +81,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -145,11 +119,24 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemy2_idle_v2-Sheet_0
+      name: enemyButterFly_front-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -163,14 +150,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee3cb9a655a0dc5448ca1fb5cc1be0c8
-      internalID: 241107787
+      spriteID: 3a17849a7188d8f47b9ddb9e414c10c5
+      internalID: 958574191
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_idle_v2-Sheet_1
+      name: enemyButterFly_front-Sheet_1
       rect:
         serializedVersion: 2
         x: 640
@@ -184,14 +171,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4159a59df78d6694e9b9e250e491ff48
-      internalID: -1157548701
+      spriteID: 3718a85df84390e41be7456182a1c224
+      internalID: -759160291
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_idle_v2-Sheet_2
+      name: enemyButterFly_front-Sheet_2
       rect:
         serializedVersion: 2
         x: 1280
@@ -205,14 +192,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01822159e48460e4084b183afee9195f
-      internalID: 820763169
+      spriteID: 6aa48846b2e2eb2479fc1c6dadd2019b
+      internalID: -840349116
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_idle_v2-Sheet_3
+      name: enemyButterFly_front-Sheet_3
       rect:
         serializedVersion: 2
         x: 1920
@@ -226,14 +213,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60ac39a6151786d40a7304ae9af3d5b8
-      internalID: -908682946
+      spriteID: 50094c49a6dd9794d924394968df1120
+      internalID: 1581626508
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_idle_v2-Sheet_4
+      name: enemyButterFly_front-Sheet_4
       rect:
         serializedVersion: 2
         x: 2560
@@ -247,14 +234,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 699ed1ee5da3db84eb60c52939697995
-      internalID: 453786670
+      spriteID: 855e8d67b4b4ff34b947e86de10fe84f
+      internalID: -1329659390
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_idle_v2-Sheet_5
+      name: enemyButterFly_front-Sheet_5
       rect:
         serializedVersion: 2
         x: 3200
@@ -268,29 +255,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 73c4efc5116e37a4d81143d93a02855e
-      internalID: -205370448
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemy2_idle_v2-Sheet_6
-      rect:
-        serializedVersion: 2
-        x: 3840
-        y: 0
-        width: 640
-        height: 640
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0099347c86d28ee4ca27d3ebb49bd6b6
-      internalID: -1825801761
+      spriteID: e4a3eab0885b38c48b8b80ded51c52d2
+      internalID: 1699245851
       vertices: []
       indices: 
       edges: []
@@ -306,13 +272,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      enemy2_idle_v2-Sheet_0: 241107787
-      enemy2_idle_v2-Sheet_1: -1157548701
-      enemy2_idle_v2-Sheet_2: 820763169
-      enemy2_idle_v2-Sheet_3: -908682946
-      enemy2_idle_v2-Sheet_4: 453786670
-      enemy2_idle_v2-Sheet_5: -205370448
-      enemy2_idle_v2-Sheet_6: -1825801761
+      enemyButterFly_front-Sheet_0: 958574191
+      enemyButterFly_front-Sheet_1: -759160291
+      enemyButterFly_front-Sheet_2: -840349116
+      enemyButterFly_front-Sheet_3: 1581626508
+      enemyButterFly_front-Sheet_4: -1329659390
+      enemyButterFly_front-Sheet_5: 1699245851
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

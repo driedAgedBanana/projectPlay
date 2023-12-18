@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 937d1b63aed78434eb963fab7227c666
+guid: 5297c6a37b9ddc34984ff5719d8bee62
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -81,33 +81,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -145,11 +119,24 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemy2_idle_v2-Sheet_0
+      name: crumble_enemy2-Sheet_noidle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -163,14 +150,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee3cb9a655a0dc5448ca1fb5cc1be0c8
-      internalID: 241107787
+      spriteID: 60327cc153890d549a9f3977e1367fd0
+      internalID: -843622912
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_idle_v2-Sheet_1
+      name: crumble_enemy2-Sheet_noidle_1
       rect:
         serializedVersion: 2
         x: 640
@@ -184,14 +171,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4159a59df78d6694e9b9e250e491ff48
-      internalID: -1157548701
+      spriteID: b76bbb7293a05c24bb17563e5bc32c02
+      internalID: -1901920828
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_idle_v2-Sheet_2
+      name: crumble_enemy2-Sheet_noidle_2
       rect:
         serializedVersion: 2
         x: 1280
@@ -205,14 +192,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01822159e48460e4084b183afee9195f
-      internalID: 820763169
+      spriteID: 115590bdffb51ef4c913349a7c92afb3
+      internalID: 1428044457
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_idle_v2-Sheet_3
+      name: crumble_enemy2-Sheet_noidle_3
       rect:
         serializedVersion: 2
         x: 1920
@@ -226,14 +213,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60ac39a6151786d40a7304ae9af3d5b8
-      internalID: -908682946
+      spriteID: 8554dcc9c8275fa49896bb9ea150f278
+      internalID: -653985133
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_idle_v2-Sheet_4
+      name: crumble_enemy2-Sheet_noidle_4
       rect:
         serializedVersion: 2
         x: 2560
@@ -247,14 +234,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 699ed1ee5da3db84eb60c52939697995
-      internalID: 453786670
+      spriteID: 8c2aad2edba6e2c46ad35f5c9af90aaf
+      internalID: 1723060322
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_idle_v2-Sheet_5
+      name: crumble_enemy2-Sheet_noidle_5
       rect:
         serializedVersion: 2
         x: 3200
@@ -268,14 +255,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 73c4efc5116e37a4d81143d93a02855e
-      internalID: -205370448
+      spriteID: 13d805c199afe0e40a677b6691b9d923
+      internalID: 1890257213
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_idle_v2-Sheet_6
+      name: crumble_enemy2-Sheet_noidle_6
       rect:
         serializedVersion: 2
         x: 3840
@@ -289,8 +276,176 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0099347c86d28ee4ca27d3ebb49bd6b6
-      internalID: -1825801761
+      spriteID: 26afd041abf9be94d9e976ba4a7ac5c8
+      internalID: -2010608099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crumble_enemy2-Sheet_noidle_7
+      rect:
+        serializedVersion: 2
+        x: 4480
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aee05de51c3084c4daf69d7766b815a0
+      internalID: -1288577148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crumble_enemy2-Sheet_noidle_8
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fef0c3ba9a751514292a0259999a331e
+      internalID: 366374473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crumble_enemy2-Sheet_noidle_9
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb0878ca94806e841afb49f832c354b5
+      internalID: 2046376067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crumble_enemy2-Sheet_noidle_10
+      rect:
+        serializedVersion: 2
+        x: 6400
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a8445b2c3fe11649b7ead50c667af3d
+      internalID: -594440030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crumble_enemy2-Sheet_noidle_11
+      rect:
+        serializedVersion: 2
+        x: 7040
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d23f761934854d4994da4d6956ad7d6
+      internalID: 990322632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crumble_enemy2-Sheet_noidle_12
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cbc37ebe6b732f4aad98061e6d272e1
+      internalID: -303720217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crumble_enemy2-Sheet_noidle_13
+      rect:
+        serializedVersion: 2
+        x: 8320
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bbd0153693d38545a698a5f536be865
+      internalID: 1812979575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crumble_enemy2-Sheet_noidle_14
+      rect:
+        serializedVersion: 2
+        x: 8960
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c87c55e170abcb24d83835f389e2c717
+      internalID: 1121568178
       vertices: []
       indices: 
       edges: []
@@ -306,13 +461,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      enemy2_idle_v2-Sheet_0: 241107787
-      enemy2_idle_v2-Sheet_1: -1157548701
-      enemy2_idle_v2-Sheet_2: 820763169
-      enemy2_idle_v2-Sheet_3: -908682946
-      enemy2_idle_v2-Sheet_4: 453786670
-      enemy2_idle_v2-Sheet_5: -205370448
-      enemy2_idle_v2-Sheet_6: -1825801761
+      crumble_enemy2-Sheet_noidle_0: -843622912
+      crumble_enemy2-Sheet_noidle_1: -1901920828
+      crumble_enemy2-Sheet_noidle_10: -594440030
+      crumble_enemy2-Sheet_noidle_11: 990322632
+      crumble_enemy2-Sheet_noidle_12: -303720217
+      crumble_enemy2-Sheet_noidle_13: 1812979575
+      crumble_enemy2-Sheet_noidle_14: 1121568178
+      crumble_enemy2-Sheet_noidle_2: 1428044457
+      crumble_enemy2-Sheet_noidle_3: -653985133
+      crumble_enemy2-Sheet_noidle_4: 1723060322
+      crumble_enemy2-Sheet_noidle_5: 1890257213
+      crumble_enemy2-Sheet_noidle_6: -2010608099
+      crumble_enemy2-Sheet_noidle_7: -1288577148
+      crumble_enemy2-Sheet_noidle_8: 366374473
+      crumble_enemy2-Sheet_noidle_9: 2046376067
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
