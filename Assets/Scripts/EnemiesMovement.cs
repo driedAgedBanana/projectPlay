@@ -10,10 +10,10 @@ public class EnemiesMovement : MonoBehaviour
     public float speed;
     public float distanceBetween;
 
-    private Animator anim;
-    private bool isStatue = true;
+    public Animator anim;
+    protected bool isStatue = true;
 
-    SpriteRenderer sr;
+    protected SpriteRenderer sr;
 
     private void Start()
     {
