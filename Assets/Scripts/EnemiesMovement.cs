@@ -13,6 +13,8 @@ public class EnemiesMovement : MonoBehaviour
     public Animator anim;
     protected bool isStatue = true;
 
+    public bool Atk = false;
+
     protected SpriteRenderer sr;
 
     private void Start()
@@ -27,11 +29,16 @@ public class EnemiesMovement : MonoBehaviour
 
         if (distance < distanceBetween)
         {
-            // Move the enemy towards the player
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+            // Get the normalized direction vector towards the player
+            Vector2 difference = (player.transform.position - transform.position).normalized;
 
-            //Vector2 direction = (player.transform.position - transform.position).normalized;
-            Vector2 difference = player.transform.position - transform.position;
+            // Restrict the movement to four directions by rounding the components
+            difference.x = Mathf.Round(difference.x);
+            difference.y = Mathf.Round(difference.y);
+
+            // Move the enemy towards the player using the restricted direction
+            transform.position = Vector2.MoveTowards(transform.position, (Vector2)transform.position + difference, speed * Time.deltaTime);
+
 
             if (Mathf.Abs(difference.x) > Mathf.Abs(difference.y))
             {
