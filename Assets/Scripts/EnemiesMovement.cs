@@ -9,6 +9,7 @@ public class EnemiesMovement : MonoBehaviour
     public GameObject player;
     public float speed;
     public float distanceBetween;
+    public float AtkRange;
 
     public Animator anim;
     protected bool isStatue = true;
