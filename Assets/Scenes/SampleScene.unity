@@ -353,7 +353,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1107511376}
   speed: 5
-  distanceBetween: 8
+  distanceBetween: 6
 --- !u!61 &64260172
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -604,8 +604,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1107511376}
   speed: 4
-  distanceBetween: 6
-  distanceBetween: 6
+  distanceBetween: 0
 --- !u!1 &368753160
 GameObject:
   m_ObjectHideFlags: 0
@@ -2143,7 +2142,7 @@ Transform:
   m_GameObject: {fileID: 1235324529}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.84, y: 2.41, z: 0}
+  m_LocalPosition: {x: 5.9, y: 4.09, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []

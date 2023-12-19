@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class ButterflyScript : EnemiesMovement
 {
-    public float distanceBetween;
-
     void Update()
     {
         float distance = Vector2.Distance(transform.position, player.transform.position);
