@@ -355,6 +355,7 @@ MonoBehaviour:
   speed: 5
   distanceBetween: 6
   anim: {fileID: 64260167}
+  atkDistance: 3
 --- !u!61 &64260172
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -609,6 +610,7 @@ MonoBehaviour:
   speed: 4
   distanceBetween: 10.12
   anim: {fileID: 271119889}
+  atkDistance: 0
 --- !u!50 &271119891
 Rigidbody2D:
   serializedVersion: 4

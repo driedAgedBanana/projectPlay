@@ -14,6 +14,7 @@ public class EnemiesMovement : MonoBehaviour
     protected bool isStatue = true;
 
     protected bool isPlayerInrange = false;
+    public float atkDistance;
 
     protected SpriteRenderer sr;
 
@@ -88,7 +89,7 @@ public class EnemiesMovement : MonoBehaviour
        float distance = Vector2.Distance(transform.position, player.transform.position);
         Debug.Log(distance);
 
-        if (distance < 2f)
+        if (distance < atkDistance)
         {
             if (difference.y > 0)
             {
