@@ -22,8 +22,8 @@ public class EnemiesMovement : MonoBehaviour
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
     }
-        // Update is called once per frame
-        void Update()
+    // Update is called once per frame
+    void Update()
     {
         float distance = Vector2.Distance(transform.position, player.transform.position);
 
@@ -42,42 +42,13 @@ public class EnemiesMovement : MonoBehaviour
 
             if (Mathf.Abs(difference.x) > Mathf.Abs(difference.y))
             {
-                if (difference.x > 0)
-                {
-                    anim.SetBool("IsMoving", true);
-                    anim.SetBool("IsMovingUp", false);
-                    anim.SetBool("IsMovingDown", false);
-                    anim.SetBool("StatueTrigger", false);
-                    
-                    sr.flipX = true;
-                }
-                else if (difference.x < 0)
-                {
-                    anim.SetBool("IsMoving", true);
-                    anim.SetBool("IsMovingUp", false);
-                    anim.SetBool("IsMovingDown", false);
-                    anim.SetBool("StatueTrigger", false);
-
-                    sr.flipX = false;
-                }
+                // Handle left and right movement
+                HandleHorizontalMovement(difference);
             }
-
-            if (Mathf.Abs(difference.y) > Mathf.Abs(difference.x))
+            else
             {
-                if (difference.y > 0)
-                {
-                    anim.SetBool("IsMovingUp", true);
-                    anim.SetBool("IsMoving", false);
-                    anim.SetBool("IsMovingDown", false);
-                    anim.SetBool("StatueTrigger", false);
-                }
-                else if (difference.y < 0)
-                {
-                    anim.SetBool("IsMovingDown", true);
-                    anim.SetBool("IsMoving", false);
-                    anim.SetBool("IsMovingUp", false);
-                    anim.SetBool("StatueTrigger", false);
-                }
+                // Handle up and down movement
+                HandleVerticalMovement(difference);
             }
 
             // Check for transforming condition
@@ -100,16 +71,59 @@ public class EnemiesMovement : MonoBehaviour
         }
     }
 
-    IEnumerator cantMove()
+    protected void HandleHorizontalMovement(Vector2 difference)
     {
-        anim.SetTrigger("StatueTrigger");
-        speed = 0;
-        isStatue = false;
-        yield return new WaitForSeconds(.5f);
-        speed = 7;
+        if (difference.x > 0)
+        {
+            SetHorizontalMovementAnimations(true);
+        }
+        else if (difference.x < 0)
+        {
+            SetHorizontalMovementAnimations(false);
+        }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    protected void HandleVerticalMovement(Vector2 difference)
+    {
+       float distance = Vector2.Distance(transform.position, player.transform.position);
+        Debug.Log(distance);
+
+        if (distance < 2f)
+        {
+            if (difference.y > 0)
+            {
+                SetVerticalMovementAnimations(true);
+                StartCoroutine(attackingUp());
+            }
+            else if (difference.y < 0) 
+            {
+                Debug.Log(" should attack down");
+                StartCoroutine(attackingDown());
+            }
+        }  
+    }
+    protected void SetHorizontalMovementAnimations(bool isMovingRight)
+    {
+        anim.SetBool("IsMoving", true);
+        anim.SetBool("IsMovingUp", false);
+        anim.SetBool("IsMovingDown", false);
+        anim.SetBool("StatueTrigger", false);
+        sr.flipX = isMovingRight;
+    }
+
+    protected void SetVerticalMovementAnimations(bool isMovingUp)
+    {
+        anim.SetBool("IsMovingUp", isMovingUp);
+        anim.SetBool("IsMoving", false);
+        anim.SetBool("IsMovingDown", !isMovingUp);
+        StartCoroutine(cantMove());
+
+        float verticalSpeed = isMovingUp ? speed : -speed;
+        transform.Translate(Vector2.up * verticalSpeed * Time.deltaTime);
+    }
+
+
+    protected void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
@@ -117,23 +131,34 @@ public class EnemiesMovement : MonoBehaviour
             anim.SetTrigger("StatueTrigger");
             isStatue = false;
         }
-        
-        else if(other.CompareTag("PlayerIsInRange"))
+
+        else if (other.CompareTag("PlayerIsInRange"))
         {
             isPlayerInrange = true;
             StartCoroutine(attacking());
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    protected void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("PlayerIsInRange"))
         {
+            Debug.Log("Exit the collider trigger");
             isPlayerInrange = false;
             anim.SetBool("ScorpionAtk", false);
-            anim.SetBool("isMoving", true);
+            anim.SetBool("ScorAtkDown", false);
+            anim.SetBool("IsMoving", true);
             speed = 6;
         }
+    }
+
+    IEnumerator cantMove()
+    {
+        anim.SetTrigger("StatueTrigger");
+        speed = 0;
+        isStatue = false;
+        yield return new WaitForSeconds(.7f);
+        speed = 7;
     }
 
     IEnumerator attacking()
@@ -141,6 +166,24 @@ public class EnemiesMovement : MonoBehaviour
         anim.SetBool("IsMoving", false);
         speed = 0;
         anim.SetTrigger("ScorpionAtk");
+        yield return null;
+    }
+
+    IEnumerator attackingUp()
+    {
+        Debug.Log("Executing AtkUp coroutine");
+        anim.SetBool("IsMovingUp", true);
+        speed = 0;
+        anim.SetBool("AtkUp", true);
+        yield return null;
+    }
+
+    IEnumerator attackingDown()
+    {
+        Debug.Log("Executing attackingDown coroutine");
+        anim.SetBool("IsMovingDown", true);
+        speed = 0;
+        anim.SetTrigger("ScorAtkDown");
         yield return null;
     }
 }
