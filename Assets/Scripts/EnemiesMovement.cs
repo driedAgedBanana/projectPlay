@@ -9,12 +9,11 @@ public class EnemiesMovement : MonoBehaviour
     public GameObject player;
     public float speed;
     public float distanceBetween;
-    public float AtkRange;
 
     public Animator anim;
     protected bool isStatue = true;
 
-    public bool Atk = false;
+    protected bool isPlayerInrange = false;
 
     protected SpriteRenderer sr;
 
@@ -118,5 +117,30 @@ public class EnemiesMovement : MonoBehaviour
             anim.SetTrigger("StatueTrigger");
             isStatue = false;
         }
+        
+        else if(other.CompareTag("PlayerIsInRange"))
+        {
+            isPlayerInrange = true;
+            StartCoroutine(attacking());
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("PlayerIsInRange"))
+        {
+            isPlayerInrange = false;
+            anim.SetBool("ScorpionAtk", false);
+            anim.SetBool("isMoving", true);
+            speed = 6;
+        }
+    }
+
+    IEnumerator attacking()
+    {
+        anim.SetBool("IsMoving", false);
+        speed = 0;
+        anim.SetTrigger("ScorpionAtk");
+        yield return null;
     }
 }
