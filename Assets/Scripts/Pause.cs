@@ -19,12 +19,21 @@ public class Pause : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)&&!background.activeInHierarchy)
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Pauze();
+        }
+        
+    }
+
+    public void Pauze()
+    {
+        if (!background.activeInHierarchy)
         {
             pauze.SetActive(true);
             background.SetActive(true);
         }
-        else if (Input.GetKeyDown(KeyCode.Escape)&&background.activeInHierarchy)
+        else if (background.activeInHierarchy)
         {
             pauze.SetActive(false);
             check.SetActive(false);
@@ -32,6 +41,7 @@ public class Pause : MonoBehaviour
             background.SetActive(false);
         }
     }
+
     public void Continue()
     {
         pauze.SetActive(false);
