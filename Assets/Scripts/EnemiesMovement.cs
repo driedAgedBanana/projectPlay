@@ -23,8 +23,13 @@ public class EnemiesMovement : MonoBehaviour
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
     }
-    // Update is called once per frame
-    void Update()
+
+    private void FixedUpdate()
+    {
+        Move();
+    }
+
+    void Move()
     {
         float distance = Vector2.Distance(transform.position, player.transform.position);
 
