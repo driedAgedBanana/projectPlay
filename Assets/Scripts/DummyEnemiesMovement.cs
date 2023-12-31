@@ -8,7 +8,19 @@ public class DummyEnemiesMovement : MonoBehaviour
 
     public float chaseDistance = 5f;
 
+    public Animator animator;
+    public SpriteRenderer spriteRenderer;
     public Transform player;
+
+    public bool isStatue = false;
+
+    private bool StartCoroutine = false;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -30,7 +42,26 @@ public class DummyEnemiesMovement : MonoBehaviour
                 }
 
                 transform.Translate(Vector2.up * speed * Time.deltaTime);
+
+                if (!StartCoroutine)
+                {
+                    StartCoroutine(CantMove());
+                    StartCoroutine = true;
+                }
+                else
+                {
+                    StartCoroutine = false;
+                }
             }
         }
+    }
+
+    IEnumerator CantMove()
+    {
+        animator.SetTrigger("SetTrigger");
+        speed = 0;
+        isStatue = false;
+        yield return new WaitForSeconds(.7f);
+        speed = 5;
     }
 }
