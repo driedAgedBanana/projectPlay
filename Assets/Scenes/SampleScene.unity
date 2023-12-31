@@ -1377,6 +1377,7 @@ GameObject:
   - component: {fileID: 875967286}
   - component: {fileID: 875967288}
   - component: {fileID: 875967287}
+  - component: {fileID: 875967289}
   m_Layer: 0
   m_Name: Scorpion2
   m_TagString: Untagged
@@ -1412,6 +1413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  chaseDistance: 5
   player: {fileID: 1107511379}
 --- !u!212 &875967288
 SpriteRenderer:
@@ -1465,6 +1467,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &875967289
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875967285}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 84bed2d218bd40d4c9a96d88b3eedfc1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &914714119
 GameObject:
   m_ObjectHideFlags: 0

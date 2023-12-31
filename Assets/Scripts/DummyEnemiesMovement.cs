@@ -5,6 +5,9 @@ using UnityEngine;
 public class DummyEnemiesMovement : MonoBehaviour
 {
     public float speed = 5f;
+
+    public float chaseDistance = 5f;
+
     public Transform player;
 
     // Update is called once per frame
@@ -12,11 +15,22 @@ public class DummyEnemiesMovement : MonoBehaviour
     {
         if (player != null)
         {
-            Vector2 direction = (player.position - transform.position).normalized;
+            float distance = Vector2.Distance(transform.position, player.position);
 
-            transform.Translate(direction * speed * Time.deltaTime);
+            if (distance <= chaseDistance)
+            {
+                Vector2 direction = (player.position - transform.position).normalized;
 
-            transform.up = direction;
+                direction.x = Mathf.Round(direction.x);
+                direction.y = Mathf.Round(direction.y);
+
+                if (direction != Vector2.zero)
+                {
+                    transform.up = direction;
+                }
+
+                transform.Translate(Vector2.up * speed * Time.deltaTime);
+            }
         }
     }
 }
