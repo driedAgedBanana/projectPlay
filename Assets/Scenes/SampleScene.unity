@@ -1414,7 +1414,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   chaseDistance: 5
+  animator: {fileID: 0}
+  spriteRenderer: {fileID: 0}
   player: {fileID: 1107511379}
+  isStatue: 0
 --- !u!212 &875967288
 SpriteRenderer:
   m_ObjectHideFlags: 0
