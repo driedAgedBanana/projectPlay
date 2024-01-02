@@ -22,7 +22,6 @@ public class DummyEnemiesMovement : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         if (player != null)
