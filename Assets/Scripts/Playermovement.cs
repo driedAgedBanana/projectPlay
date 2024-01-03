@@ -61,6 +61,11 @@ public class Playermovement : MonoBehaviour
             isRunning = false;
         }
 
+        if (Input.GetKey(KeyCode.F))
+        {
+            StartCoroutine(playerIsAttacking());
+        }
+
         // Calculate the speed based on whether the player is running or not
         float currentSpeed = isRunning ? speed * runSpeedMultiplier : speed;
 
@@ -103,21 +108,31 @@ public class Playermovement : MonoBehaviour
             StartCoroutine(PlaySittingAnimations());
         }
 
-        IEnumerator PlaySittingAnimations()
-        {
-            // Play the "NekoBeginSitting" animation
-            animator.SetBool("NekoBeginSitting", true);
-            yield return new WaitForSeconds(0.5f);
-
-            // Play the "NekoIsSitting" animation
-            animator.SetBool("NekoBeginSitting", false);
-            animator.SetBool("NekoIsSitting", true);
-        }
-
+        
         //// Sitting animation
         //animator.SetBool("NekoBeginSitting", !isRunning && idleTimer >= idleTimeThreshold);
         //animator.SetBool("NekoIsSitting", !isRunning && idleTimer >= idleTimeThreshold);
 
 
+    }
+
+    IEnumerator playerIsAttacking()
+    {
+        speed = 0;
+        animator.SetBool("isAttacking", true);
+        yield return new WaitForSeconds(1f);
+        speed = 5;
+        animator.SetBool("isAttacking", false);
+    }
+
+    IEnumerator PlaySittingAnimations()
+    {
+        // Play the "NekoBeginSitting" animation
+        animator.SetBool("NekoBeginSitting", true);
+        yield return new WaitForSeconds(0.5f);
+
+        // Play the "NekoIsSitting" animation
+        animator.SetBool("NekoBeginSitting", false);
+        animator.SetBool("NekoIsSitting", true);
     }
 }

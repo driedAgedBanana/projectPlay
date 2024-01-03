@@ -1,20 +1,15 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DummyEnemiesMovement : MonoBehaviour
 {
     public float speed = 5f;
-
     public float chaseDistance = 5f;
-
     public Animator animator;
     public SpriteRenderer spriteRenderer;
     public Transform player;
-
     public bool isStatue = false;
-
-    private bool StartCoroutine = false;
+    private bool isCrumbling = false;
 
     private void Start()
     {
@@ -22,9 +17,9 @@ public class DummyEnemiesMovement : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
-        if (player != null)
+        if (!isCrumbling && player != null)
         {
             float distance = Vector2.Distance(transform.position, player.position);
 
@@ -32,35 +27,55 @@ public class DummyEnemiesMovement : MonoBehaviour
             {
                 Vector2 direction = (player.position - transform.position).normalized;
 
+                // Round the components
                 direction.x = Mathf.Round(direction.x);
                 direction.y = Mathf.Round(direction.y);
 
-                if (direction != Vector2.zero)
+                // Ensure movement only in one direction
+                if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
                 {
-                    transform.up = direction;
-                }
-
-                transform.Translate(Vector2.up * speed * Time.deltaTime);
-
-                if (!StartCoroutine)
-                {
-                    StartCoroutine(CantMove());
-                    StartCoroutine = true;
+                    // Move horizontally
+                    transform.Translate(Vector2.right * direction.x * speed * Time.deltaTime);
                 }
                 else
                 {
-                    StartCoroutine = false;
+                    // Move vertically
+                    transform.Translate(Vector2.up * direction.y * speed * Time.deltaTime);
                 }
             }
         }
     }
 
+    protected void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            animator.SetTrigger("SetTrigger");
+            isStatue = false;
+            StartCoroutine(CantMove());
+            StartCoroutine(MovingHorizon());
+        }
+        else
+        {
+            isStatue = true;
+            speed = 0;
+        }
+    }
+
     IEnumerator CantMove()
     {
-        animator.SetTrigger("SetTrigger");
-        speed = 0;
-        isStatue = false;
-        yield return new WaitForSeconds(.7f);
+        isCrumbling = true;
+        // Wait for the crumbling animation to finish
+        yield return null;
+    }
+
+    IEnumerator MovingHorizon()
+    {
+        yield return new WaitForSeconds(0.8f);
+        // Resume movement
+        isCrumbling = false;
+        animator.SetBool("MovingHorizontally", true);
         speed = 5;
+        chaseDistance = 8;
     }
 }
