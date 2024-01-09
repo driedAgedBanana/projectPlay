@@ -10,6 +10,7 @@ public class DummyEnemiesMovement : MonoBehaviour
     public Transform player;
     public bool isStatue = false;
     private bool isCrumbling = false;
+    private bool isMoving = false;
 
     private void Start()
     {
@@ -21,9 +22,10 @@ public class DummyEnemiesMovement : MonoBehaviour
     {
         if (!isCrumbling && player != null)
         {
-            float distance = Vector2.Distance(transform.position, player.position);
+            // Use the squared distance for efficiency
+            float distanceSquared = (player.position - transform.position).sqrMagnitude;
 
-            if (distance <= chaseDistance)
+            if (distanceSquared <= chaseDistance * chaseDistance)
             {
                 Vector2 direction = (player.position - transform.position).normalized;
 
@@ -36,13 +38,61 @@ public class DummyEnemiesMovement : MonoBehaviour
                 {
                     // Move horizontally
                     transform.Translate(Vector2.right * direction.x * speed * Time.deltaTime);
+                    SetAnimationParameters(direction.x, 0);
                 }
                 else
                 {
                     // Move vertically
                     transform.Translate(Vector2.up * direction.y * speed * Time.deltaTime);
+                    SetAnimationParameters(0, direction.y);
                 }
             }
+            else
+            {
+                SetAnimationParameters(0, 0);
+            }
+        }
+    }
+
+    // Set the animation parameters based on the movement direction
+    protected void SetAnimationParameters(float horizontal, float vertical)
+    {
+        isMoving = horizontal != 0 || vertical != 0;
+
+        // Set parameters for horizontal movement
+        if (horizontal != 0)
+        {
+            animator.SetBool("MovingHorizontally", isMoving);
+            animator.SetBool("MovingVertically", false);
+
+            // Flip the sprite when moving to the right
+            spriteRenderer.flipX = horizontal > 0;
+        }
+        // Set parameters for vertical movement
+        else if (vertical != 0)
+        {
+            animator.SetBool("MovingHorizontally", false);
+            animator.SetBool("MovingVertically", isMoving);
+
+            // Set the correct animation for moving down or up immediately
+            if (vertical < 0)
+            {
+                animator.SetBool("MovingDown", isMoving);
+                animator.SetBool("MovingUp", false);
+            }
+            else if (vertical > 0)
+            {
+                animator.SetBool("MovingDown", false);
+                animator.SetBool("MovingUp", isMoving);
+            }
+        }
+        // Set parameters for no movement
+        else
+        {
+            animator.SetBool("MovingHorizontally", false);
+            animator.SetBool("MovingVertically", false);
+            animator.SetBool("MovingDown", false);
+            animator.SetBool("MovingUp", false);
         }
     }
 
@@ -64,6 +114,7 @@ public class DummyEnemiesMovement : MonoBehaviour
 
     IEnumerator CantMove()
     {
+        speed = 0;
         isCrumbling = true;
         // Wait for the crumbling animation to finish
         yield return null;
@@ -71,10 +122,10 @@ public class DummyEnemiesMovement : MonoBehaviour
 
     IEnumerator MovingHorizon()
     {
-        yield return new WaitForSeconds(0.8f);
-        // Resume movement
+        yield return new WaitForSeconds(0.1f); // Adjust the delay as needed
+
+        // Resume movement based on the last known direction
         isCrumbling = false;
-        animator.SetBool("MovingHorizontally", true);
         speed = 5;
         chaseDistance = 8;
     }

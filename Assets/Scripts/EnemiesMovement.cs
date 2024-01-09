@@ -178,7 +178,7 @@ public class EnemiesMovement : MonoBehaviour
     IEnumerator attackingUp()
     {
         Debug.Log("Executing AtkUp coroutine");
-        anim.SetBool("IsMovingUp", true);
+        anim.SetBool("IsMovingUp", false);
         speed = 0;
         anim.SetBool("AtkUp", true);
         yield return null;
