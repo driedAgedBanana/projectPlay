@@ -14,5 +14,10 @@ public class smoothCam : MonoBehaviour
     {
         Vector3 movePos = target.position + offset;
         transform.position = Vector3.SmoothDamp(transform.position, movePos, ref velocity, damping);
+
+        if (target == null)
+        {
+            return;
+        }
     }
 }

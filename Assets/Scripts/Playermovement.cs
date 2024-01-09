@@ -9,6 +9,10 @@ public class Playermovement : MonoBehaviour
     [SerializeField] private TrailRenderer tr;
     private StaminaScript staminaScript;
 
+    //For health
+    public int health;
+    public int maxHealth = 10;
+
     // For animation
     private Animator animator;
 
@@ -93,10 +97,12 @@ public class Playermovement : MonoBehaviour
             transform.Translate(Vector2.up * yInput * currentSpeed * Time.deltaTime);
         }
 
+
         // Set animation
         animator.SetBool("nekoWalk", xInput != 0);
         animator.SetBool("nekoWalkUp", yInput > 0);
         animator.SetBool("nekoWalkDown", yInput < 0);
+
 
         // Dashing animation
         animator.SetBool("NekoDashup", yInput != 0 && isRunning);
@@ -116,11 +122,45 @@ public class Playermovement : MonoBehaviour
 
     }
 
+    public void TakingDamage(int amount)
+    {
+        health -= amount;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+            Destroy(tr); 
+            tr = null;
+        }
+    }
+
     IEnumerator playerIsAttacking()
     {
         speed = 0;
         animator.SetBool("isAttacking", true);
-        yield return new WaitForSeconds(1f);
+
+        float xInput = Input.GetAxis("Horizontal");
+        float yInput = Input.GetAxis("Vertical");
+
+        if (Mathf.Abs(xInput) > Mathf.Abs(yInput))
+        {
+            animator.SetTrigger("NekoAtk");
+        }
+        else
+        {
+            // Player is moving vertically or standing still
+            if (yInput > 0)
+            {
+                //Player moving up
+                animator.SetTrigger("NekoAtkUp");
+            }
+            else if (xInput < 0)
+            {
+                //Player moving down
+                animator.SetTrigger("NekoAtkFront");
+            }
+        }
+
+        yield return new WaitForSeconds(1);
         speed = 5;
         animator.SetBool("isAttacking", false);
     }

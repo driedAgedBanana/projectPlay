@@ -1946,6 +1946,8 @@ MonoBehaviour:
   speed: 5
   runSpeedMultiplier: 5
   tr: {fileID: 1107511384}
+  health: 0
+  maxHealth: 10
   idleTimeThreshold: 5
 --- !u!212 &1107511378
 SpriteRenderer:
@@ -2229,7 +2231,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.2, y: 3.2046874}
+    oldSize: {x: 6.4062557, y: 6.4}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2389,7 +2391,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.2, y: 3.2046874}
+    oldSize: {x: 6.4062557, y: 6.4}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
