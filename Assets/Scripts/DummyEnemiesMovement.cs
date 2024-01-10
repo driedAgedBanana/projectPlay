@@ -160,11 +160,10 @@ public class DummyEnemiesMovement : MonoBehaviour
         shouldRotate = true;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        Debug.Log("shouldRotate: " + shouldRotate);  // Add this line for debugging
-
         animator.SetBool("IsMoving", isInChasingRange);
+        animator.SetBool("IsAtk", isInAtkRange);
 
         isInChasingRange = Physics2D.OverlapCircle(transform.position, checkRadius, DetectPlayer);
         isInAtkRange = Physics2D.OverlapCircle(transform.position, AtkRadius, DetectPlayer);
@@ -178,10 +177,16 @@ public class DummyEnemiesMovement : MonoBehaviour
             animator.SetFloat("X", direction.x);
             animator.SetFloat("Y", direction.y);
         }
-
-        if (isInChasingRange && !isInAtkRange && !isCrumbling)
+        Debug.Log(" is in chasing range = " + isInChasingRange);
+        if (isInChasingRange)
         {
             StartCoroutine(CrumbleAndMove());
+            MoveCharacter(movement);
+        }
+        else if (isInAtkRange)
+        {
+            StartCoroutine(IsAttacking());
+            speed = 0;
         }
     }
 
@@ -196,13 +201,16 @@ public class DummyEnemiesMovement : MonoBehaviour
 
         // Resume movement based on the last known direction
         isCrumbling = false;
-        speed = 5;
-        MoveCharacter(movement);
+    }
+
+    private IEnumerator IsAttacking()
+    {
+        animator.SetBool("IsAtk", true);
+        yield return new WaitForSeconds(0.2f);
     }
 
     private void MoveCharacter(Vector2 dir)
     {
-        Debug.Log("Moving character");
-        rb.MovePosition((Vector2)transform.position + (dir * speed * Time.deltaTime));
+        rb.MovePosition((Vector2)transform.position + (dir * speed * Time.fixedDeltaTime));
     }
 }

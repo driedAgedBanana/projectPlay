@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e837aa3d3465066469c776133d87e6bb
+guid: 93427725d6f93bc43b76c54b1d565f53
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -136,7 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemyScor_leftright_attack_v2-Sheet_0
+      name: enemyScor_right_attack_v2-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -150,14 +150,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cfb7b46f721d3214c909e26cefd92ec1
-      internalID: -1798257367
+      spriteID: c6610c986101f5f4ea8ea1b8dd11a40a
+      internalID: 1134109825
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemyScor_leftright_attack_v2-Sheet_1
+      name: enemyScor_right_attack_v2-Sheet_1
       rect:
         serializedVersion: 2
         x: 640
@@ -171,14 +171,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7de2e1a1aaf161643b39abac7d51fa5d
-      internalID: 1342720049
+      spriteID: c7126834cdbcff84cbb61c6f5c9b4680
+      internalID: 1661362745
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemyScor_leftright_attack_v2-Sheet_2
+      name: enemyScor_right_attack_v2-Sheet_2
       rect:
         serializedVersion: 2
         x: 1280
@@ -192,14 +192,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c35c5102174263459cede8a049ccd11
-      internalID: -603749381
+      spriteID: af8d8c810f2a52e46b242198c46d9e2d
+      internalID: -292596560
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemyScor_leftright_attack_v2-Sheet_3
+      name: enemyScor_right_attack_v2-Sheet_3
       rect:
         serializedVersion: 2
         x: 1920
@@ -213,14 +213,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2130c8a8d5814a6439f3bddcb8cf1828
-      internalID: -708210957
+      spriteID: 644e09959fad44c48b3fadd9871f0db4
+      internalID: -1911929489
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemyScor_leftright_attack_v2-Sheet_4
+      name: enemyScor_right_attack_v2-Sheet_4
       rect:
         serializedVersion: 2
         x: 2560
@@ -234,14 +234,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b0192aca8671fa24893d43e151296bb1
-      internalID: -1354206382
+      spriteID: 954bafb9670119741bb1adb4c7b018cb
+      internalID: -1242873646
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemyScor_leftright_attack_v2-Sheet_5
+      name: enemyScor_right_attack_v2-Sheet_5
       rect:
         serializedVersion: 2
         x: 3200
@@ -255,14 +255,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8556f895a9dcd104f9321678b228ae82
-      internalID: -1656946166
+      spriteID: 9341595da3384ca4da7c178b4b519c23
+      internalID: -1472781486
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemyScor_leftright_attack_v2-Sheet_6
+      name: enemyScor_right_attack_v2-Sheet_6
       rect:
         serializedVersion: 2
         x: 3840
@@ -276,14 +276,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0e7509b0eeb9224b8b5e4545ffc74fd
-      internalID: 1515356713
+      spriteID: 34f6bc0b19552c64ab68e0630e53d63c
+      internalID: -1669752428
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemyScor_leftright_attack_v2-Sheet_7
+      name: enemyScor_right_attack_v2-Sheet_7
       rect:
         serializedVersion: 2
         x: 4480
@@ -297,14 +297,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2f5e84865419214c877fb511d912e77
-      internalID: 812564429
+      spriteID: 0f246b5779cd57e44ba12273457cf33d
+      internalID: -1836302377
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemyScor_leftright_attack_v2-Sheet_8
+      name: enemyScor_right_attack_v2-Sheet_8
       rect:
         serializedVersion: 2
         x: 5120
@@ -318,14 +318,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 874deaca7f4e724498ed0bf90c54f890
-      internalID: -175614238
+      spriteID: b9fa702a00262ac4691a221080ff51ef
+      internalID: 1174524297
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemyScor_leftright_attack_v2-Sheet_9
+      name: enemyScor_right_attack_v2-Sheet_9
       rect:
         serializedVersion: 2
         x: 5760
@@ -339,14 +339,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8580a03d996c19d4ab5e83a26e8d3f6d
-      internalID: -664264435
+      spriteID: 03261be5af90e5f41a790a0be729b9d8
+      internalID: 1465587385
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemyScor_leftright_attack_v2-Sheet_10
+      name: enemyScor_right_attack_v2-Sheet_10
       rect:
         serializedVersion: 2
         x: 6400
@@ -360,14 +360,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df9f5cda24f2f2949886d7a4ea83c169
-      internalID: -1193898768
+      spriteID: dd378d09518785e488fe5730e1aa4ffc
+      internalID: -1007231302
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemyScor_leftright_attack_v2-Sheet_11
+      name: enemyScor_right_attack_v2-Sheet_11
       rect:
         serializedVersion: 2
         x: 7040
@@ -381,14 +381,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff81f93f96e647e45beba847dd40a037
-      internalID: 1346334182
+      spriteID: 5fac8540d42734049b8567f17f35fe7d
+      internalID: -1294472250
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemyScor_leftright_attack_v2-Sheet_12
+      name: enemyScor_right_attack_v2-Sheet_12
       rect:
         serializedVersion: 2
         x: 7680
@@ -402,14 +402,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f2455dc6e7a5785489af98970a7fd605
-      internalID: 241499213
+      spriteID: 2f8a2a77b5980bf44874bc99b5ab2da0
+      internalID: -1396500002
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemyScor_leftright_attack_v2-Sheet_13
+      name: enemyScor_right_attack_v2-Sheet_13
       rect:
         serializedVersion: 2
         x: 8320
@@ -423,8 +423,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ff981d0f3d95a046a3dcd69e13c84b2
-      internalID: -493925496
+      spriteID: c40fda42ba1921d438cf4b9b81a93720
+      internalID: -930367888
       vertices: []
       indices: 
       edges: []
@@ -440,20 +440,20 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      enemyScor_leftright_attack_v2-Sheet_0: -1798257367
-      enemyScor_leftright_attack_v2-Sheet_1: 1342720049
-      enemyScor_leftright_attack_v2-Sheet_10: -1193898768
-      enemyScor_leftright_attack_v2-Sheet_11: 1346334182
-      enemyScor_leftright_attack_v2-Sheet_12: 241499213
-      enemyScor_leftright_attack_v2-Sheet_13: -493925496
-      enemyScor_leftright_attack_v2-Sheet_2: -603749381
-      enemyScor_leftright_attack_v2-Sheet_3: -708210957
-      enemyScor_leftright_attack_v2-Sheet_4: -1354206382
-      enemyScor_leftright_attack_v2-Sheet_5: -1656946166
-      enemyScor_leftright_attack_v2-Sheet_6: 1515356713
-      enemyScor_leftright_attack_v2-Sheet_7: 812564429
-      enemyScor_leftright_attack_v2-Sheet_8: -175614238
-      enemyScor_leftright_attack_v2-Sheet_9: -664264435
+      enemyScor_right_attack_v2-Sheet_0: 1134109825
+      enemyScor_right_attack_v2-Sheet_1: 1661362745
+      enemyScor_right_attack_v2-Sheet_10: -1007231302
+      enemyScor_right_attack_v2-Sheet_11: -1294472250
+      enemyScor_right_attack_v2-Sheet_12: -1396500002
+      enemyScor_right_attack_v2-Sheet_13: -930367888
+      enemyScor_right_attack_v2-Sheet_2: -292596560
+      enemyScor_right_attack_v2-Sheet_3: -1911929489
+      enemyScor_right_attack_v2-Sheet_4: -1242873646
+      enemyScor_right_attack_v2-Sheet_5: -1472781486
+      enemyScor_right_attack_v2-Sheet_6: -1669752428
+      enemyScor_right_attack_v2-Sheet_7: -1836302377
+      enemyScor_right_attack_v2-Sheet_8: 1174524297
+      enemyScor_right_attack_v2-Sheet_9: 1465587385
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
