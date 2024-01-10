@@ -30,6 +30,7 @@ public class Playermovement : MonoBehaviour
     {
         staminaScript = StaminaScript.instance;
         tr.emitting = false;
+        health = maxHealth;
     }
 
     // Update is called once per frame

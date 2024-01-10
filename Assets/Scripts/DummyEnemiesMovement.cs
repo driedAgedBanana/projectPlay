@@ -151,11 +151,18 @@ public class DummyEnemiesMovement : MonoBehaviour
     private bool isInAtkRange;
 
     private bool isCrumbling;
+    private bool canAtk = true;
+
+    //For player's health damage
+    public Playermovement playerMovement;
+    public int damageDeal = 2;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        playerMovement = GetComponent<Playermovement>();
+
         target = GameObject.FindWithTag("Player").transform;
         shouldRotate = true;
     }
@@ -183,13 +190,18 @@ public class DummyEnemiesMovement : MonoBehaviour
             StartCoroutine(CrumbleAndMove());
             MoveCharacter(movement);
         }
-        else if (isInAtkRange)
+        if (isInAtkRange && canAtk)
         {
+            StopMoving(); // Stop the enemy explicitly
             StartCoroutine(IsAttacking());
-            speed = 0;
         }
     }
 
+    private void StopMoving()
+    {
+        rb.velocity = Vector2.zero;
+        speed = 0;
+    }
     private IEnumerator CrumbleAndMove()
     {
         isCrumbling = true;
@@ -205,8 +217,21 @@ public class DummyEnemiesMovement : MonoBehaviour
 
     private IEnumerator IsAttacking()
     {
+        canAtk = false;
         animator.SetBool("IsAtk", true);
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(1.1f);
+        //do damage to player
+        yield return new WaitForSeconds(0.1f);
+        canAtk = true;
+        speed = 5;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            playerMovement.TakingDamage(damageDeal);
+        }
     }
 
     private void MoveCharacter(Vector2 dir)

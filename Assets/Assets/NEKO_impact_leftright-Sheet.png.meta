@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5297c6a37b9ddc34984ff5719d8bee62
+guid: 1b6c0c10f6a051f49b534ad7ea7b477d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 150
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -136,13 +136,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: crumble_enemy2-Sheet_noidle_0
+      name: NEKO_impact_leftright-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 640
-        height: 640
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60327cc153890d549a9f3977e1367fd0
-      internalID: -843622912
+      spriteID: 97e4af87817241f45a249fd7f8f9386c
+      internalID: -135680253
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crumble_enemy2-Sheet_noidle_1
+      name: NEKO_impact_leftright-Sheet_1
       rect:
         serializedVersion: 2
         x: 640
         y: 0
         width: 640
-        height: 640
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,20 +171,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b76bbb7293a05c24bb17563e5bc32c02
-      internalID: -1901920828
+      spriteID: 8b98597d92c82194ab2bf9e65c3252f6
+      internalID: 827002782
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crumble_enemy2-Sheet_noidle_2
+      name: NEKO_impact_leftright-Sheet_2
       rect:
         serializedVersion: 2
         x: 1280
         y: 0
         width: 640
-        height: 640
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,20 +192,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 115590bdffb51ef4c913349a7c92afb3
-      internalID: 1428044457
+      spriteID: 17152c847b8f63b41aa1ee099d075f73
+      internalID: -1581896674
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crumble_enemy2-Sheet_noidle_3
+      name: NEKO_impact_leftright-Sheet_3
       rect:
         serializedVersion: 2
         x: 1920
         y: 0
         width: 640
-        height: 640
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,20 +213,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8554dcc9c8275fa49896bb9ea150f278
-      internalID: -653985133
+      spriteID: cde815528da08e6439d76ae3bfd0d7d4
+      internalID: 1273707760
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crumble_enemy2-Sheet_noidle_4
+      name: NEKO_impact_leftright-Sheet_4
       rect:
         serializedVersion: 2
         x: 2560
         y: 0
         width: 640
-        height: 640
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,20 +234,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c2aad2edba6e2c46ad35f5c9af90aaf
-      internalID: 1723060322
+      spriteID: 7c3ea088a17ad6f4090442a7610333b4
+      internalID: -182163601
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crumble_enemy2-Sheet_noidle_5
+      name: NEKO_impact_leftright-Sheet_5
       rect:
         serializedVersion: 2
         x: 3200
         y: 0
         width: 640
-        height: 640
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -255,20 +255,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 13d805c199afe0e40a677b6691b9d923
-      internalID: 1890257213
+      spriteID: 574f935ca8afef04b82c786b3d063644
+      internalID: 607743479
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crumble_enemy2-Sheet_noidle_6
+      name: NEKO_impact_leftright-Sheet_6
       rect:
         serializedVersion: 2
         x: 3840
         y: 0
         width: 640
-        height: 640
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -276,20 +276,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26afd041abf9be94d9e976ba4a7ac5c8
-      internalID: -2010608099
+      spriteID: 5b14d24590fb6dc43be04be12eba08fb
+      internalID: 46903949
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crumble_enemy2-Sheet_noidle_7
+      name: NEKO_impact_leftright-Sheet_7
       rect:
         serializedVersion: 2
         x: 4480
         y: 0
         width: 640
-        height: 640
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -297,20 +297,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aee05de51c3084c4daf69d7766b815a0
-      internalID: -1288577148
+      spriteID: 25dc77cffa9e25b41a95954a833d8ed2
+      internalID: 114828888
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crumble_enemy2-Sheet_noidle_8
+      name: NEKO_impact_leftright-Sheet_8
       rect:
         serializedVersion: 2
         x: 5120
         y: 0
         width: 640
-        height: 640
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -318,20 +318,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fef0c3ba9a751514292a0259999a331e
-      internalID: 366374473
+      spriteID: e1822065f3944c54bb7f19558c572e1e
+      internalID: -816952818
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crumble_enemy2-Sheet_noidle_9
+      name: NEKO_impact_leftright-Sheet_9
       rect:
         serializedVersion: 2
         x: 5760
         y: 0
         width: 640
-        height: 640
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -339,20 +339,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb0878ca94806e841afb49f832c354b5
-      internalID: 2046376067
+      spriteID: 53dc9e7e7fc2e5b43bf360cf674450fe
+      internalID: 1969772143
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crumble_enemy2-Sheet_noidle_10
+      name: NEKO_impact_leftright-Sheet_10
       rect:
         serializedVersion: 2
         x: 6400
         y: 0
         width: 640
-        height: 640
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -360,20 +360,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a8445b2c3fe11649b7ead50c667af3d
-      internalID: -594440030
+      spriteID: 57137e2ae836aff4294851cb4a7f455e
+      internalID: -973050039
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crumble_enemy2-Sheet_noidle_11
+      name: NEKO_impact_leftright-Sheet_11
       rect:
         serializedVersion: 2
         x: 7040
         y: 0
         width: 640
-        height: 640
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -381,20 +381,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d23f761934854d4994da4d6956ad7d6
-      internalID: 990322632
+      spriteID: 0b42fd69373152140839a8465f914ad5
+      internalID: -1793385970
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crumble_enemy2-Sheet_noidle_12
+      name: NEKO_impact_leftright-Sheet_12
       rect:
         serializedVersion: 2
         x: 7680
         y: 0
         width: 640
-        height: 640
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -402,20 +402,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1cbc37ebe6b732f4aad98061e6d272e1
-      internalID: -303720217
+      spriteID: 6bcab8da30f72e24aa0d17e801fd8f41
+      internalID: 500746503
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crumble_enemy2-Sheet_noidle_13
+      name: NEKO_impact_leftright-Sheet_13
       rect:
         serializedVersion: 2
         x: 8320
         y: 0
         width: 640
-        height: 640
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -423,20 +423,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1bbd0153693d38545a698a5f536be865
-      internalID: 1812979575
+      spriteID: 8a37f716db9e666498dc585b38df3223
+      internalID: 1331496923
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crumble_enemy2-Sheet_noidle_14
+      name: NEKO_impact_leftright-Sheet_14
       rect:
         serializedVersion: 2
         x: 8960
         y: 0
         width: 640
-        height: 640
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -444,8 +444,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c87c55e170abcb24d83835f389e2c717
-      internalID: 1121568178
+      spriteID: fc89a9cd8d681d0489b074b2e55f6a34
+      internalID: 770410117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NEKO_impact_leftright-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 9600
+        y: 0
+        width: 640
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5d57340162ac994c934455479984e5b
+      internalID: -727900968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NEKO_impact_leftright-Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 10240
+        y: 0
+        width: 640
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a7dc6ab021923a458407d3d221baeba
+      internalID: 1560029513
       vertices: []
       indices: 
       edges: []
@@ -461,21 +503,23 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      crumble_enemy2-Sheet_noidle_0: -843622912
-      crumble_enemy2-Sheet_noidle_1: -1901920828
-      crumble_enemy2-Sheet_noidle_10: -594440030
-      crumble_enemy2-Sheet_noidle_11: 990322632
-      crumble_enemy2-Sheet_noidle_12: -303720217
-      crumble_enemy2-Sheet_noidle_13: 1812979575
-      crumble_enemy2-Sheet_noidle_14: 1121568178
-      crumble_enemy2-Sheet_noidle_2: 1428044457
-      crumble_enemy2-Sheet_noidle_3: -653985133
-      crumble_enemy2-Sheet_noidle_4: 1723060322
-      crumble_enemy2-Sheet_noidle_5: 1890257213
-      crumble_enemy2-Sheet_noidle_6: -2010608099
-      crumble_enemy2-Sheet_noidle_7: -1288577148
-      crumble_enemy2-Sheet_noidle_8: 366374473
-      crumble_enemy2-Sheet_noidle_9: 2046376067
+      NEKO_impact_leftright-Sheet_0: -135680253
+      NEKO_impact_leftright-Sheet_1: 827002782
+      NEKO_impact_leftright-Sheet_10: -973050039
+      NEKO_impact_leftright-Sheet_11: -1793385970
+      NEKO_impact_leftright-Sheet_12: 500746503
+      NEKO_impact_leftright-Sheet_13: 1331496923
+      NEKO_impact_leftright-Sheet_14: 770410117
+      NEKO_impact_leftright-Sheet_15: -727900968
+      NEKO_impact_leftright-Sheet_16: 1560029513
+      NEKO_impact_leftright-Sheet_2: -1581896674
+      NEKO_impact_leftright-Sheet_3: 1273707760
+      NEKO_impact_leftright-Sheet_4: -182163601
+      NEKO_impact_leftright-Sheet_5: 607743479
+      NEKO_impact_leftright-Sheet_6: 46903949
+      NEKO_impact_leftright-Sheet_7: 114828888
+      NEKO_impact_leftright-Sheet_8: -816952818
+      NEKO_impact_leftright-Sheet_9: 1969772143
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
