@@ -157,7 +157,7 @@ public class DummyEnemiesMovement : MonoBehaviour
     private bool canAtk = true;
 
     //For player's health damage
-    public Playermovement playerMovement;
+    //public Playermovement playerMovement;
     public int damageDeal = 2;
 
     private void Start()
@@ -170,7 +170,7 @@ public class DummyEnemiesMovement : MonoBehaviour
         if (playerObject != null)
         {
             target = playerObject.transform;  // Assign the player's transform to the target variable
-            playerMovement = playerObject.GetComponent<Playermovement>();
+            //playerMovement = playerObject.GetComponent<Playermovement>();
         }
         else
         {
@@ -254,7 +254,7 @@ public class DummyEnemiesMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            playerMovement.TakingDamage(damageDeal);
+            //playerMovement.TakingDamage(damageDeal);
         }
     }
 

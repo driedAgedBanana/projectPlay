@@ -1,31 +1,32 @@
 using System.Collections;
 using UnityEngine;
 
-public class Playermovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     public float speed;
-    public float runSpeedMultiplier = 2f; // Adjust this value to set the running speed multiplier
+    public float runSpeedMultiplier = 2f;
     private bool isRunning = false;
-    [SerializeField] private TrailRenderer tr;
+    private TrailRenderer tr;
     private StaminaScript staminaScript;
 
-    //For health
-    public int health;
+    // For health
     public int maxHealth = 10;
+    public int currentHealth;
 
     // For animation
     private Animator animator;
-
     private Rigidbody2D rb;
 
     // Time variables for sitting idle
     private float idleTimer = 0f;
-    public float idleTimeThreshold = 10f; // Adjust this value to set the idle time threshold
+    public float idleTimeThreshold = 10f;
+    private bool isSitting = false;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        tr = GetComponent<TrailRenderer>();
     }
 
     // Start is called before the first frame update
@@ -33,7 +34,7 @@ public class Playermovement : MonoBehaviour
     {
         staminaScript = StaminaScript.instance;
         tr.emitting = false;
-        health = maxHealth;
+        currentHealth = maxHealth;
     }
 
     // Update is called once per frame
@@ -69,18 +70,12 @@ public class Playermovement : MonoBehaviour
             isRunning = false;
         }
 
-        if (Input.GetKey(KeyCode.F))
-        {
-            StartCoroutine(playerIsAttacking());
-        }
-
         // Calculate the speed based on whether the player is running or not
         float currentSpeed = isRunning ? speed * runSpeedMultiplier : speed;
 
         // Move the player
         if (Mathf.Abs(xInput) > Mathf.Abs(yInput))
         {
-
             // Move horizontally
             transform.Translate(Vector2.right * xInput * currentSpeed * Time.deltaTime);
 
@@ -102,72 +97,57 @@ public class Playermovement : MonoBehaviour
             rb.velocity = moveInput.normalized * currentSpeed;
         }
 
-
         // Set animation
         animator.SetBool("nekoWalk", xInput != 0);
         animator.SetBool("nekoWalkUp", yInput > 0);
         animator.SetBool("nekoWalkDown", yInput < 0);
-
 
         // Dashing animation
         animator.SetBool("NekoDashup", yInput != 0 && isRunning);
         animator.SetBool("NekoDashDown", yInput != 0 && isRunning);
         animator.SetBool("NekoDash", xInput != 0 && isRunning);
 
-        if (!isRunning && idleTimer >= idleTimeThreshold)
+        // Check for sitting animation
+        if (!isRunning)
         {
-            StartCoroutine(PlaySittingAnimations());
+            if (idleTimer >= idleTimeThreshold && !isSitting)
+            {
+                StartCoroutine(PlaySittingAnimations());
+                isSitting = true;
+            }
+            else if (idleTimer < idleTimeThreshold)
+            {
+                isSitting = false;
+            }
         }
-
-        
-        //// Sitting animation
-        //animator.SetBool("NekoBeginSitting", !isRunning && idleTimer >= idleTimeThreshold);
-        //animator.SetBool("NekoIsSitting", !isRunning && idleTimer >= idleTimeThreshold);
-
-
     }
 
     public void TakingDamage(int amount)
     {
-        health -= amount;
-        if (health <= 0)
+        currentHealth -= amount;
+
+        // Log the health for testing purposes
+        Debug.Log("Player Health: " + currentHealth);
+
+        if (currentHealth <= 0)
         {
-            Destroy(gameObject);
-            Destroy(tr); 
-            tr = null;
+            // Player death logic can be added here
+            StartCoroutine(PlayerDeath());
         }
     }
 
-    IEnumerator playerIsAttacking()
+    IEnumerator PlayerDeath()
     {
         speed = 0;
-        animator.SetBool("isAttacking", true);
+        // Play death animation
+        animator.SetBool("Die", true);
 
-        float xInput = Input.GetAxis("Horizontal");
-        float yInput = Input.GetAxis("Vertical");
+        // Wait for the duration of the death animation
+        yield return new WaitForSeconds(1.5f);
 
-        if (Mathf.Abs(xInput) > Mathf.Abs(yInput))
-        {
-            animator.SetTrigger("NekoAtk");
-        }
-        else
-        {
-            // Player is moving vertically or standing still
-            if (yInput > 0)
-            {
-                //Player moving up
-                animator.SetTrigger("NekoAtkUp");
-            }
-            else if (xInput < 0)
-            {
-                //Player moving down
-                animator.SetTrigger("NekoAtkFront");
-            }
-        }
-
-        yield return new WaitForSeconds(1);
-        speed = 5;
-        animator.SetBool("isAttacking", false);
+        // Additional actions after death animation can be added here
+        // For now, let's destroy the player GameObject
+        Destroy(gameObject);
     }
 
     IEnumerator PlaySittingAnimations()
