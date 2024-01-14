@@ -16,6 +16,8 @@ public class Playermovement : MonoBehaviour
     // For animation
     private Animator animator;
 
+    private Rigidbody2D rb;
+
     // Time variables for sitting idle
     private float idleTimer = 0f;
     public float idleTimeThreshold = 10f; // Adjust this value to set the idle time threshold
@@ -23,6 +25,7 @@ public class Playermovement : MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Start is called before the first frame update
@@ -94,8 +97,9 @@ public class Playermovement : MonoBehaviour
         }
         else
         {
-            // Move vertically
-            transform.Translate(Vector2.up * yInput * currentSpeed * Time.deltaTime);
+            // Move the player using Rigidbody2D velocity
+            Vector2 moveInput = new Vector2(xInput, yInput);
+            rb.velocity = moveInput.normalized * currentSpeed;
         }
 
 

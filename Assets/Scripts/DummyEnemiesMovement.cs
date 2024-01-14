@@ -147,6 +147,9 @@ public class DummyEnemiesMovement : MonoBehaviour
     private Vector2 movement;
     public Vector3 direction;
 
+    public float chasingSpeed = 5f;
+
+
     private bool isInChasingRange;
     private bool isInAtkRange;
 
@@ -161,11 +164,23 @@ public class DummyEnemiesMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        playerMovement = GetComponent<Playermovement>();
 
-        target = GameObject.FindWithTag("Player").transform;
+        // Find the player dynamically
+        GameObject playerObject = GameObject.FindWithTag("Player");
+        if (playerObject != null)
+        {
+            target = playerObject.transform;  // Assign the player's transform to the target variable
+            playerMovement = playerObject.GetComponent<Playermovement>();
+        }
+        else
+        {
+            Debug.LogError("Player not found. Make sure the player has the 'Player' tag.");
+        }
+
         shouldRotate = true;
     }
+
+
 
     private void FixedUpdate()
     {
@@ -208,12 +223,21 @@ public class DummyEnemiesMovement : MonoBehaviour
         // Trigger the crumbling animation
         animator.SetTrigger("SetTrigger");
 
-        // Wait for the crumbling animation to finish
+        // Wait for the crumbling animation to start (adjust the duration as needed)
         yield return new WaitForSeconds(0.1f);
+
+        // Halt movement during the animation
+        speed = 0;
+
+        // Wait for the crumbling animation to finish
+        yield return new WaitForSeconds(0.6f);
 
         // Resume movement based on the last known direction
         isCrumbling = false;
+        speed = chasingSpeed;
     }
+
+
 
     private IEnumerator IsAttacking()
     {
