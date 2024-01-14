@@ -56,6 +56,9 @@ public class PlayerAtk : MonoBehaviour
         // Check if the enemy script is found
         if (enemyScript != null)
         {
+            // Log a message to check if the method is called
+            Debug.Log("Enemy Hit!");
+
             // Play hit animation and deal damage
             enemyScript.TakeDamage(damage);
         }
