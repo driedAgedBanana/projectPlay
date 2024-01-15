@@ -685,6 +685,8 @@ MonoBehaviour:
     m_Bits: 64
   direction: {x: 0, y: 0, z: 0}
   chasingSpeed: 5
+  isInChasingRange: 0
+  isInAtkRange: 0
   damageDeal: 2
 --- !u!50 &271119891
 Rigidbody2D:
@@ -1595,7 +1597,7 @@ Transform:
   m_GameObject: {fileID: 875967285}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.8, y: 0.4, z: 0}
+  m_LocalPosition: {x: 0, y: 0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1623,6 +1625,8 @@ MonoBehaviour:
     m_Bits: 64
   direction: {x: 0, y: 0, z: 0}
   chasingSpeed: 5
+  isInChasingRange: 0
+  isInAtkRange: 0
   damageDeal: 2
 --- !u!212 &875967288
 SpriteRenderer:
