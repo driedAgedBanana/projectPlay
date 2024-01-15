@@ -141,26 +141,26 @@ public class DummyEnemiesMovement : MonoBehaviour
 
     public LayerMask DetectPlayer;
 
-    private Transform target;
-    private Rigidbody2D rb;
-    private Animator animator;
-    private Vector2 movement;
+    protected Transform target;
+    protected Rigidbody2D rb;
+    protected Animator animator;
+    protected Vector2 movement;
     public Vector3 direction;
 
     public float chasingSpeed = 5f;
 
 
-    private bool isInChasingRange;
-    private bool isInAtkRange;
+    protected bool isInChasingRange;
+    protected bool isInAtkRange;
 
-    private bool isCrumbling;
-    private bool canAtk = true;
+    protected bool isCrumbling;
+    protected bool canAtk = true;
 
     //For player's health damage
     //public Playermovement playerMovement;
     public int damageDeal = 2;
 
-    private void Start()
+    protected void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -182,7 +182,7 @@ public class DummyEnemiesMovement : MonoBehaviour
 
 
 
-    private void FixedUpdate()
+    protected void FixedUpdate()
     {
         animator.SetBool("IsMoving", isInChasingRange);
         animator.SetBool("IsAtk", isInAtkRange);
@@ -212,7 +212,7 @@ public class DummyEnemiesMovement : MonoBehaviour
         }
     }
 
-    private void StopMoving()
+    protected void StopMoving()
     {
         rb.velocity = Vector2.zero;
         speed = 0;

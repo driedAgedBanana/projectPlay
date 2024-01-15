@@ -584,12 +584,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 271119886}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.420001, y: 8.67, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.24, y: 3.56, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 456514986}
+  m_Father: {fileID: 2136012208}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &271119888
 SpriteRenderer:
@@ -676,11 +676,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b0b0ae2946597f48be66b071cf7df28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1107511376}
   speed: 4
-  distanceBetween: 10.12
-  anim: {fileID: 271119889}
-  atkDistance: 0
+  checkRadius: 5
+  AtkRadius: 5
+  shouldRotate: 1
+  DetectPlayer:
+    serializedVersion: 2
+    m_Bits: 64
+  direction: {x: 0, y: 0, z: 0}
+  chasingSpeed: 5
+  damageDeal: 2
 --- !u!50 &271119891
 Rigidbody2D:
   serializedVersion: 4
@@ -1132,7 +1137,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 64260165}
-  - {fileID: 271119887}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &471580764
@@ -3714,6 +3718,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 875967286}
+  - {fileID: 271119887}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
