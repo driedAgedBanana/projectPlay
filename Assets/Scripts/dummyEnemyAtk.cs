@@ -22,6 +22,7 @@ public class dummyEnemyAtk : MonoBehaviour
         canHit = true;
         StartCoroutine(cantGetHit());
 
+
         if (currentHealth <= 0)
         {
             Die();

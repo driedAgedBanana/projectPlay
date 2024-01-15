@@ -133,133 +133,104 @@ public class DummyEnemiesMovement : MonoBehaviour
     //}
     #endregion
 
-    public float speed;
-    public float checkRadius;
-    public float AtkRadius;
+    public float speed = 5f;
+    public float chaseDistance = 5f;
 
-    public bool shouldRotate;
+    private Animator animator;
+    private bool isCrumbling = false;
+    private bool isMoving = false;
 
-    public LayerMask DetectPlayer;
+    private Transform player;
 
-    protected Transform target;
-    protected Rigidbody2D rb;
-    protected Animator animator;
-    protected Vector2 movement;
-    public Vector3 direction;
-
-    public float chasingSpeed = 5f;
-
-
-    protected bool isInChasingRange;
-    protected bool isInAtkRange;
-
-    protected bool isCrumbling;
-    protected bool canAtk = true;
-
-    //For player's health damage
-    //public Playermovement playerMovement;
-    public int damageDeal = 2;
-
-    protected void Start()
+    void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
 
-        // Find the player dynamically
-        GameObject playerObject = GameObject.FindWithTag("Player");
-        if (playerObject != null)
-        {
-            target = playerObject.transform;  // Assign the player's transform to the target variable
-            //playerMovement = playerObject.GetComponent<Playermovement>();
-        }
-        else
-        {
-            Debug.LogError("Player not found. Make sure the player has the 'Player' tag.");
-        }
-
-        shouldRotate = true;
+        // Set the enemy to start in a static animation
+        animator.SetBool("IsMoving", false);
+        StartCoroutine(CrumbleAndMove());
     }
 
-
-
-    protected void FixedUpdate()
+    void Update()
     {
-        animator.SetBool("IsMoving", isInChasingRange);
-        animator.SetBool("IsAtk", isInAtkRange);
+        if (!isCrumbling && player != null)
+        {
+            // Use the squared distance for efficiency
+            float distanceSquared = (player.position - transform.position).sqrMagnitude;
 
-        isInChasingRange = Physics2D.OverlapCircle(transform.position, checkRadius, DetectPlayer);
-        isInAtkRange = Physics2D.OverlapCircle(transform.position, AtkRadius, DetectPlayer);
+            if (distanceSquared <= chaseDistance * chaseDistance)
+            {
+                Vector2 direction = (player.position - transform.position).normalized;
 
-        direction = target.position - transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        direction.Normalize();
-        movement = direction;
-        if (shouldRotate)
-        {
-            animator.SetFloat("X", direction.x);
-            animator.SetFloat("Y", direction.y);
-        }
-       // Debug.Log(" is in chasing range = " + isInChasingRange);
-        if (isInChasingRange)
-        {
-            StartCoroutine(CrumbleAndMove());
-            MoveCharacter(movement);
-        }
-        if (isInAtkRange && canAtk)
-        {
-            StopMoving(); // Stop the enemy explicitly
-            StartCoroutine(IsAttacking());
+                // Round the components
+                direction.x = Mathf.Round(direction.x);
+                direction.y = Mathf.Round(direction.y);
+
+                // Ensure movement only in one direction
+                if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+                {
+                    // Move horizontally
+                    transform.Translate(Vector2.right * direction.x * speed * Time.deltaTime);
+                    SetAnimationParameters(direction.x, 0);
+                }
+                else
+                {
+                    // Move vertically
+                    transform.Translate(Vector2.up * direction.y * speed * Time.deltaTime);
+                    SetAnimationParameters(0, direction.y);
+                }
+            }
+            else
+            {
+                SetAnimationParameters(0, 0);
+            }
         }
     }
 
-    protected void StopMoving()
+    // Set the animation parameters based on the movement direction
+    protected void SetAnimationParameters(float horizontal, float vertical)
     {
-        rb.velocity = Vector2.zero;
-        speed = 0;
+        isMoving = horizontal != 0 || vertical != 0;
+
+        animator.SetBool("IsMoving", isMoving);
+
+        // Set parameters for horizontal movement
+        if (horizontal != 0)
+        {
+            // Flip the sprite when moving to the right
+            if (horizontal > 0)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
+            else if (horizontal < 0)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+        }
     }
+
     private IEnumerator CrumbleAndMove()
     {
         isCrumbling = true;
+
         // Trigger the crumbling animation
-        animator.SetTrigger("SetTrigger");
+        animator.SetBool("SetTrigger", true);
 
         // Wait for the crumbling animation to start (adjust the duration as needed)
         yield return new WaitForSeconds(0.1f);
+
+        // Reset the trigger to avoid looping
+        animator.SetBool("SetTrigger", false);
 
         // Halt movement during the animation
         speed = 0;
 
         // Wait for the crumbling animation to finish
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(0.5f);
 
         // Resume movement based on the last known direction
         isCrumbling = false;
-        speed = chasingSpeed;
-    }
-
-
-
-    private IEnumerator IsAttacking()
-    {
-        canAtk = false;
-        animator.SetBool("IsAtk", true);
-        yield return new WaitForSeconds(1.1f);
-        //do damage to player
-        yield return new WaitForSeconds(0.1f);
-        canAtk = true;
-        speed = 5;
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            //playerMovement.TakingDamage(damageDeal);
-        }
-    }
-
-    private void MoveCharacter(Vector2 dir)
-    {
-        rb.MovePosition((Vector2)transform.position + (dir * speed * Time.fixedDeltaTime));
+        speed = 5f;
     }
 }

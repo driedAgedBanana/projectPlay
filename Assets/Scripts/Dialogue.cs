@@ -13,7 +13,7 @@ public class Dialogue : MonoBehaviour
     private int index = 0;
 
     public float wordSpeed;
-    public bool playerIsClose = true;
+    public bool playerIsClose;
 
     void Start()
     {
