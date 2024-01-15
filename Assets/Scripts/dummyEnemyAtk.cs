@@ -12,16 +12,13 @@ public class dummyEnemyAtk : MonoBehaviour
         currentHealth = maxHealth;
     }
 
+    // dummyEnemyAtk script
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        animator.SetBool("isHit", true);
 
-        if (currentHealth > 0)
-        {
-            // Trigger hit animation
-            animator.SetTrigger("isHit");
-        }
-        else
+        if (currentHealth <= 0)
         {
             Die();
         }
@@ -31,8 +28,11 @@ public class dummyEnemyAtk : MonoBehaviour
     {
         // Trigger death animation
         animator.SetBool("Die", true);
-        Destroy(gameObject, 1.5f); // Destroy the enemy after 1.5 seconds (adjust as needed)
+
+        // Destroy the enemy object after the death animation duration
+        Destroy(gameObject, 1.5f);
     }
+
     IEnumerator DestroyAfterAnimation()
     {
         // Wait for the duration of the death animation

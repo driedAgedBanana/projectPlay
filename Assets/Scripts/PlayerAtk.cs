@@ -11,6 +11,11 @@ public class PlayerAtk : MonoBehaviour
 
     private bool isAttacking = false;
 
+    private void Start()
+    {
+        attackCollider.SetActive(false);
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.F) && !isAttacking)
@@ -42,7 +47,7 @@ public class PlayerAtk : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Enemies"))
+        if (other.gameObject.CompareTag("Enemies") && isAttacking)
         {
             EnemyHit(other.gameObject);
         }

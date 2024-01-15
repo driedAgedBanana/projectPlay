@@ -199,7 +199,7 @@ public class DummyEnemiesMovement : MonoBehaviour
             animator.SetFloat("X", direction.x);
             animator.SetFloat("Y", direction.y);
         }
-        Debug.Log(" is in chasing range = " + isInChasingRange);
+       // Debug.Log(" is in chasing range = " + isInChasingRange);
         if (isInChasingRange)
         {
             StartCoroutine(CrumbleAndMove());
