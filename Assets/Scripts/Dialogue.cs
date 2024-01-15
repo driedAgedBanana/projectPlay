@@ -13,14 +13,12 @@ public class Dialogue : MonoBehaviour
     private int index = 0;
 
     public float wordSpeed;
-    public bool playerIsClose;
+    public bool playerIsClose = true;
 
     void Start()
     {
         dialogueText.text = "";
     }
-
-    // Update is called once per frame
 
     void Update()
     {

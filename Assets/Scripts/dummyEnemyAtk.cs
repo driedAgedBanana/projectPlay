@@ -4,6 +4,8 @@ using UnityEngine;
 public class dummyEnemyAtk : MonoBehaviour
 {
     public Animator animator;
+    public float GetHitTimer = 0.5f;
+    public bool canHit;
     public int maxHealth = 10; // Update this to the correct max health value
     private int currentHealth;
 
@@ -17,6 +19,8 @@ public class dummyEnemyAtk : MonoBehaviour
     {
         currentHealth -= damage;
         animator.SetBool("isHit", true);
+        canHit = true;
+        StartCoroutine(cantGetHit());
 
         if (currentHealth <= 0)
         {
@@ -33,10 +37,17 @@ public class dummyEnemyAtk : MonoBehaviour
         Destroy(gameObject, 1.5f);
     }
 
+    IEnumerator cantGetHit()
+    {
+        canHit = false;
+        yield return new WaitForSeconds(GetHitTimer);
+        canHit = true;
+    }
+
     IEnumerator DestroyAfterAnimation()
     {
         // Wait for the duration of the death animation
-        yield return new WaitForSeconds(1.0f); // Adjust this time based on the death animation duration
+        yield return new WaitForSeconds(0.6f); // Adjust this time based on the death animation duration
 
         // Destroy the enemy object
         Destroy(gameObject);
