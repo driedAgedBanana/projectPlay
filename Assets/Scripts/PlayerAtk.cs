@@ -15,16 +15,17 @@ public class PlayerAtk : MonoBehaviour
         {
             StartCoroutine(AttackSequence());
         }
-
-        // Check if the attack animation is finished
-        CheckAttackAnimation();
     }
 
     IEnumerator AttackSequence()
     {
-        playerAnimator.SetBool("isAttacking", true);
-        isAttacking = true;
-        yield return new WaitForSeconds(0.3f);
+        if (!isAttacking)
+        {
+            playerAnimator.Play("AttackNeko");
+            isAttacking = true;
+        }
+
+        yield return new WaitForSeconds(0.6f);
         Attack();
     }
 
@@ -38,17 +39,8 @@ public class PlayerAtk : MonoBehaviour
         {
             enemy.TakeDamage(damage);
         }
-    }
 
-    void CheckAttackAnimation()
-    {
-        AnimatorStateInfo stateInfo = playerAnimator.GetCurrentAnimatorStateInfo(0);
-        if (isAttacking && stateInfo.normalizedTime >= 1.0f)
-        {
-            // Reset the "isAttacking" parameter
-            playerAnimator.SetBool("isAttacking", false);
-            isAttacking = false;
-        }
+        isAttacking=false;
     }
 
     Vector2 GetAttackDirection()
