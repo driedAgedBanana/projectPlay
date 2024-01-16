@@ -18,7 +18,7 @@ public class dummyEnemyAtk : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        animator.SetBool("isHit", true);
+        animator.Play("HitAnim");
         canHit = true;
         StartCoroutine(cantGetHit());
 
@@ -32,10 +32,10 @@ public class dummyEnemyAtk : MonoBehaviour
     void Die()
     {
         // Trigger death animation
-        animator.SetBool("Die", true);
+        animator.Play("dummyScorDie");
 
         // Destroy the enemy object after the death animation duration
-        Destroy(gameObject, 1.5f);
+        Destroy(gameObject, 0.8f);
     }
 
     IEnumerator cantGetHit()

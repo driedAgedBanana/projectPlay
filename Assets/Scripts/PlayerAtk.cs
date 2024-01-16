@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerAtk : MonoBehaviour
@@ -15,10 +13,35 @@ public class PlayerAtk : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F) && !isAttacking)
         {
-            Attack();
+            StartCoroutine(AttackSequence());
         }
 
         // Check if the attack animation is finished
+        CheckAttackAnimation();
+    }
+
+    IEnumerator AttackSequence()
+    {
+        playerAnimator.SetBool("isAttacking", true);
+        isAttacking = true;
+        yield return new WaitForSeconds(0.3f);
+        Attack();
+    }
+
+    void Attack()
+    {
+        Vector2 direction = GetAttackDirection();
+
+        // Raycast detection for attack
+        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, direction, Range);
+        if (hitInfo && hitInfo.transform.TryGetComponent(out dummyEnemyAtk enemy))
+        {
+            enemy.TakeDamage(damage);
+        }
+    }
+
+    void CheckAttackAnimation()
+    {
         AnimatorStateInfo stateInfo = playerAnimator.GetCurrentAnimatorStateInfo(0);
         if (isAttacking && stateInfo.normalizedTime >= 1.0f)
         {
@@ -28,43 +51,27 @@ public class PlayerAtk : MonoBehaviour
         }
     }
 
-    void Attack()
+    Vector2 GetAttackDirection()
     {
-        //get attack direction
-        Vector2 Dir = Vector2.zero;
-        PlayerMovement PM = GetComponent<PlayerMovement>();
-        if(PM.MyDir == PlayerMovement.PlayerDir.Up)
+        PlayerMovement playerMovement = GetComponent<PlayerMovement>();
+        switch (playerMovement.MyDir)
         {
-            Dir = Vector2.up;
+            case PlayerMovement.PlayerDir.Up:
+                return Vector2.up;
+            case PlayerMovement.PlayerDir.Down:
+                return Vector2.down;
+            case PlayerMovement.PlayerDir.Left:
+                return Vector2.left;
+            case PlayerMovement.PlayerDir.Right:
+                return Vector2.right;
+            default:
+                return Vector2.zero;
         }
-        else if(PM.MyDir == PlayerMovement.PlayerDir.Down)
-        {
-            Dir = Vector2.down;
-        }
-        else if (PM.MyDir == PlayerMovement.PlayerDir.Left)
-        {
-            Dir = Vector2.left;
-        }
-        else if (PM.MyDir == PlayerMovement.PlayerDir.Right)
-        {
-            Dir = Vector2.right;
-        }
-
-        //raycast detection for attack
-        RaycastHit2D HitInfo = Physics2D.Raycast(transform.position, Dir, Range);
-        if (HitInfo && HitInfo.transform.GetComponent<dummyEnemyAtk>())
-        {
-            dummyEnemyAtk DEA = HitInfo.transform.GetComponent<dummyEnemyAtk>();
-            DEA.TakeDamage(damage);
-        }
-
-        // Trigger the player's attack animation
-        playerAnimator.SetBool("isAttacking", true);
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Enemies") && isAttacking)
+        if (other.CompareTag("Enemies") && isAttacking)
         {
             EnemyHit(other.gameObject);
         }
@@ -73,10 +80,7 @@ public class PlayerAtk : MonoBehaviour
     void EnemyHit(GameObject enemy)
     {
         // Get the enemy script (replace "dummyEnemyAtk" with your actual script name)
-        dummyEnemyAtk enemyScript = enemy.GetComponent<dummyEnemyAtk>();
-
-        // Check if the enemy script is found
-        if (enemyScript != null)
+        if (enemy.TryGetComponent(out dummyEnemyAtk enemyScript))
         {
             // Log a message to check if the method is called
             Debug.Log("Enemy Hit!");
@@ -85,5 +89,4 @@ public class PlayerAtk : MonoBehaviour
             enemyScript.TakeDamage(damage);
         }
     }
-
 }

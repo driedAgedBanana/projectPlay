@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
     // For health
     public int maxHealth = 10;
-    public int currentHealth;
+    private int currentHealth;
 
     // For animation
     private Animator animator;
@@ -42,92 +42,139 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        HandleMovementInput();
+        UpdateAnimation();
+        CheckSittingAnimation();
+    }
+
+    void HandleMovementInput()
+    {
         float xInput = Input.GetAxis("Horizontal");
         float yInput = Input.GetAxis("Vertical");
 
-        // Check if the shift key is held down
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            // Checking if the stamina is enough to run
-            if (staminaScript != null && staminaScript.HasEnoughStamina())
-            {
-                isRunning = true;
-                staminaScript.UseStamina(1);
-                idleTimer = 0f; // Reset the idle timer when the player is active
-                tr.emitting = true;
-            }
-            else
-            {
-                // If there is not enough stamina, stop running
-                isRunning = false;
-                tr.emitting = false;
-            }
-        }
-        else
-        {
-            // Increment the idle timer when the player is not active
-            idleTimer += Time.deltaTime;
-            tr.emitting = false;
+        HandleRunningInput(xInput, yInput);
 
-            isRunning = false;
-        }
-
-        // Calculate the speed based on whether the player is running or not
         float currentSpeed = isRunning ? speed * runSpeedMultiplier : speed;
 
-        // Move the player
         if (Mathf.Abs(xInput) > Mathf.Abs(yInput))
         {
-            // Move horizontally
-            transform.Translate(Vector2.right * xInput * currentSpeed * Time.deltaTime);
-
-            // Flip the sprite when moving to the right
-            if (xInput > 0)
-            {
-                transform.localScale = new Vector3(-0.8f, 0.8f, 0.8f);
-            }
-            // Keep the sprite facing left when moving to the left
-            else if (xInput < 0)
-            {
-                transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
-            }
+            MoveHorizontally(xInput);
         }
         else
         {
-            // Move the player using Rigidbody2D velocity
-            Vector2 moveInput = new Vector2(xInput, yInput);
-            rb.velocity = moveInput.normalized * currentSpeed;
+            MoveVertically(yInput);
         }
 
-        //set dir for attack script
-        if(xInput > 0)
+        SetPlayerDirection(xInput, yInput);
+    }
+
+    void HandleRunningInput(float xInput, float yInput)
+    {
+        if (Input.GetKey(KeyCode.LeftShift) && staminaScript != null && staminaScript.HasEnoughStamina())
         {
+            isRunning = true;
+            staminaScript.UseStamina(1);
+            idleTimer = 0f;
+            tr.emitting = true;
+        }
+        else
+        {
+            isRunning = false;
+            tr.emitting = false;
+            IncrementIdleTimer();
+        }
+    }
+
+    void MoveHorizontally(float xInput)
+    {
+        transform.Translate(Vector2.right * xInput * GetCurrentSpeed() * Time.deltaTime);
+
+        FlipSprite(xInput);
+    }
+
+    void MoveVertically(float yInput)
+    {
+        Vector2 moveInput = new Vector2(0, yInput);
+        rb.velocity = moveInput.normalized * GetCurrentSpeed();
+    }
+
+    void SetPlayerDirection(float xInput, float yInput)
+    {
+        if (xInput > 0)
             MyDir = PlayerDir.Right;
-        }
-        else if(xInput < 0)
-        {
+        else if (xInput < 0)
             MyDir = PlayerDir.Left;
-        }
-        else if(yInput > 0)
-        {
+        else if (yInput > 0)
             MyDir = PlayerDir.Up;
-        }
-        else if(yInput < 0)
-        {
+        else if (yInput < 0)
             MyDir = PlayerDir.Down;
-        }
+    }
 
-        // Set animation
-        animator.SetBool("nekoWalk", xInput != 0);
-        animator.SetBool("nekoWalkUp", yInput > 0);
-        animator.SetBool("nekoWalkDown", yInput < 0);
+    float GetCurrentSpeed()
+    {
+        return isRunning ? speed * runSpeedMultiplier : speed;
+    }
 
-        // Dashing animation
-        animator.SetBool("NekoDashup", yInput != 0 && isRunning);
-        animator.SetBool("NekoDashDown", yInput != 0 && isRunning);
-        animator.SetBool("NekoDash", xInput != 0 && isRunning);
+    void FlipSprite(float xInput)
+    {
+        transform.localScale = new Vector3(xInput > 0 ? -0.8f : 0.8f, 0.8f, 0.8f);
+    }
 
-        // Check for sitting animation
+    void UpdateAnimation()
+    {
+        animator.SetBool("nekoWalk", IsWalking());
+        animator.SetBool("nekoWalkUp", IsMovingUp());
+        animator.SetBool("nekoWalkDown", IsMovingDown());
+
+        animator.SetBool("NekoDashup", IsDashing() && IsMovingUp());
+        animator.SetBool("NekoDashDown", IsDashing() && IsMovingDown());
+        animator.SetBool("NekoDash", IsDashing());
+
+        animator.SetBool("Die", IsDead());
+    }
+
+    bool IsWalking()
+    {
+        return Input.GetAxis("Horizontal") != 0;
+    }
+
+    bool IsMovingUp()
+    {
+        return Input.GetAxis("Vertical") > 0;
+    }
+
+    bool IsMovingDown()
+    {
+        return Input.GetAxis("Vertical") < 0;
+    }
+
+    bool IsDashing()
+    {
+        return IsDashingUp() || IsDashingDown() || IsDashingSideways();
+    }
+
+    bool IsDashingUp()
+    {
+        return Input.GetAxis("Vertical") != 0 && isRunning;
+    }
+
+    bool IsDashingDown()
+    {
+        return Input.GetAxis("Vertical") != 0 && isRunning;
+    }
+
+    bool IsDashingSideways()
+    {
+        return Input.GetAxis("Horizontal") != 0 && isRunning;
+    }
+
+    bool IsDead()
+    {
+        return currentHealth <= 0;
+    }
+
+    void CheckSittingAnimation()
+    {
         if (!isRunning)
         {
             if (idleTimer >= idleTimeThreshold && !isSitting)
@@ -142,16 +189,18 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    void IncrementIdleTimer()
+    {
+        idleTimer += Time.deltaTime;
+    }
+
     public void TakingDamage(int amount)
     {
         currentHealth -= amount;
-
-        // Log the health for testing purposes
         Debug.Log("Player Health: " + currentHealth);
 
-        if (currentHealth <= 0)
+        if (IsDead())
         {
-            // Player death logic can be added here
             StartCoroutine(PlayerDeath());
         }
     }
@@ -159,24 +208,15 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator PlayerDeath()
     {
         speed = 0;
-        // Play death animation
         animator.SetBool("Die", true);
-
-        // Wait for the duration of the death animation
         yield return new WaitForSeconds(1.5f);
-
-        // Additional actions after death animation can be added here
-        // For now, let's destroy the player GameObject
         Destroy(gameObject);
     }
 
     IEnumerator PlaySittingAnimations()
     {
-        // Play the "NekoBeginSitting" animation
         animator.SetBool("NekoBeginSitting", true);
         yield return new WaitForSeconds(0.5f);
-
-        // Play the "NekoIsSitting" animation
         animator.SetBool("NekoBeginSitting", false);
         animator.SetBool("NekoIsSitting", true);
     }
