@@ -1,20 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerAtk : MonoBehaviour
 {
-    public GameObject attackCollider; // Assign this in the Unity Editor
-    public LayerMask enemyLayer;
     public int damage = 1;
+    public float Range = 3;
     public Animator playerAnimator; // Assign this in the Unity Editor
 
     private bool isAttacking = false;
-
-    private void Start()
-    {
-        attackCollider.SetActive(false);
-    }
 
     void Update()
     {
@@ -30,16 +25,38 @@ public class PlayerAtk : MonoBehaviour
             // Reset the "isAttacking" parameter
             playerAnimator.SetBool("isAttacking", false);
             isAttacking = false;
-
-            // Disable the attack collider
-            attackCollider.SetActive(false);
         }
     }
 
     void Attack()
     {
-        isAttacking = true;
-        attackCollider.SetActive(true);
+        //get attack direction
+        Vector2 Dir = Vector2.zero;
+        PlayerMovement PM = GetComponent<PlayerMovement>();
+        if(PM.MyDir == PlayerMovement.PlayerDir.Up)
+        {
+            Dir = Vector2.up;
+        }
+        else if(PM.MyDir == PlayerMovement.PlayerDir.Down)
+        {
+            Dir = Vector2.down;
+        }
+        else if (PM.MyDir == PlayerMovement.PlayerDir.Left)
+        {
+            Dir = Vector2.left;
+        }
+        else if (PM.MyDir == PlayerMovement.PlayerDir.Right)
+        {
+            Dir = Vector2.right;
+        }
+
+        //raycast detection for attack
+        RaycastHit2D HitInfo = Physics2D.Raycast(transform.position, Dir, Range);
+        if (HitInfo && HitInfo.transform.GetComponent<dummyEnemyAtk>())
+        {
+            dummyEnemyAtk DEA = HitInfo.transform.GetComponent<dummyEnemyAtk>();
+            DEA.TakeDamage(damage);
+        }
 
         // Trigger the player's attack animation
         playerAnimator.SetBool("isAttacking", true);

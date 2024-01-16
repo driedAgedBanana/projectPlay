@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     private TrailRenderer tr;
     private StaminaScript staminaScript;
 
+    public PlayerDir MyDir;
+
     // For health
     public int maxHealth = 10;
     public int currentHealth;
@@ -97,6 +99,24 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = moveInput.normalized * currentSpeed;
         }
 
+        //set dir for attack script
+        if(xInput > 0)
+        {
+            MyDir = PlayerDir.Right;
+        }
+        else if(xInput < 0)
+        {
+            MyDir = PlayerDir.Left;
+        }
+        else if(yInput > 0)
+        {
+            MyDir = PlayerDir.Up;
+        }
+        else if(yInput < 0)
+        {
+            MyDir = PlayerDir.Down;
+        }
+
         // Set animation
         animator.SetBool("nekoWalk", xInput != 0);
         animator.SetBool("nekoWalkUp", yInput > 0);
@@ -159,5 +179,13 @@ public class PlayerMovement : MonoBehaviour
         // Play the "NekoIsSitting" animation
         animator.SetBool("NekoBeginSitting", false);
         animator.SetBool("NekoIsSitting", true);
+    }
+
+    public enum PlayerDir
+    {
+        Up,
+        Down,
+        Left,
+        Right,
     }
 }

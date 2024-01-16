@@ -187,8 +187,8 @@ public class DummyEnemiesMovement : MonoBehaviour
         animator.SetBool("IsMoving", isInChasingRange);
         animator.SetBool("IsAtk", isInAtkRange);
 
-        isInChasingRange = Physics2D.OverlapCircle(transform.position, checkRadius, DetectPlayer);
-        isInAtkRange = Physics2D.OverlapCircle(transform.position, AtkRadius, DetectPlayer);
+        isInChasingRange = Vector2.Distance(transform.position, target.position) < checkRadius? true : false;
+        isInAtkRange = Vector2.Distance(transform.position, target.position) < AtkRadius ? true : false;
 
         direction = target.position - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
