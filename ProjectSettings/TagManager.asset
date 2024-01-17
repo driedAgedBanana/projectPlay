@@ -10,6 +10,7 @@ TagManager:
   - PlayerIsInRange
   - PlayerAttack
   - Enemies
+  - sceneManager
   layers:
   - Default
   - TransparentFX

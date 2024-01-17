@@ -125,6 +125,7 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("Die", true);
         yield return new WaitForSeconds(1.5f);
         Destroy(gameObject);
+        Destroy(tr);
     }
 
     public enum PlayerDir
